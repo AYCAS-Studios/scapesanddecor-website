@@ -26,8 +26,8 @@ body{
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-.container{max-width:1280px;margin:0 auto;padding:0 40px}
-.wide{max-width:1440px;margin:0 auto;padding:0 40px}
+.container{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.wide{max-width:1440px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 
 /* ===== Top Bar ===== */
 .topbar{
@@ -135,6 +135,27 @@ nav.main{
   display:inline-block;width:28px;
   font-family:'Playfair Display',serif;font-style:italic;
   color:var(--clay);font-size:13px;
+}
+
+/* ===== Mobile nav toggle (hamburger) =====
+   Checkbox hack: hidden <input> + label is tapped to toggle
+   .nav-checkbox:checked ~ .nav-links shows the mobile panel.
+   Base styles hide it on desktop; the 768px media query activates it. */
+.nav-checkbox{display:none}
+.nav-toggle{
+  display:none;
+  align-items:center;justify-content:center;
+  width:44px;height:44px;
+  margin-left:auto;
+  cursor:pointer;color:var(--charcoal);
+  border-radius:2px;
+  transition:background .15s;
+}
+.nav-toggle:hover{background:var(--stone)}
+.nav-toggle svg{width:24px;height:24px;display:block}
+.nav-toggle svg line{
+  transition:transform .2s ease, opacity .2s ease;
+  transform-origin:center;
 }
 
 .btn{
@@ -504,13 +525,130 @@ footer{background:var(--charcoal);color:#D4D3CC;padding:80px 0 32px}
 .footer-bar em{color:var(--clay);font-style:normal}
 
 @media (max-width:980px){
-  .nav-links{display:none}
   .about-grid,.contact-grid,.why-grid{grid-template-columns:1fr;gap:48px}
   .services-grid .service-card{grid-column:span 12}
   .steps{grid-template-columns:repeat(2,1fr)}
   .sectors-grid,.footer-grid{grid-template-columns:1fr 1fr}
   .hero-metrics{grid-template-columns:1fr 1fr}
   .hero-badge{display:none}
+  /* Tablet: tighten nav gaps so it fits alongside logo + CTA */
+  .nav-links{gap:22px}
+  .nav-links a{font-size:13px}
+}
+
+/* ===== Mobile tier (phones + small tablets) ===== */
+@media (max-width:768px){
+  /* Activate hamburger, hide desktop-row nav-links + CTA */
+  .nav-toggle{display:inline-flex}
+  .nav-inner > .btn-primary{display:none}
+  .nav-inner{padding:14px 0;position:relative}
+
+  /* Mobile nav panel: full-width dropdown below sticky nav */
+  .nav-links{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;
+    background:var(--linen);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:6px 0;
+    box-shadow:0 20px 30px -12px rgba(34,40,30,.18);
+    z-index:55;
+  }
+  .nav-checkbox:checked ~ .nav-links{display:flex}
+  .nav-links > li{border-bottom:1px solid var(--line-soft);width:100%}
+  .nav-links > li:last-child{border-bottom:none}
+  .nav-links a{
+    padding:14px clamp(16px,4vw,40px);
+    font-size:15px;width:100%;
+  }
+  .nav-links a.active::after{display:none}
+
+  /* Flatten the services dropdown on mobile — show inline, no hover needed */
+  .nav-links .dropdown{
+    position:static;opacity:1;visibility:visible;
+    transform:none;box-shadow:none;border:none;
+    background:var(--stone);
+    padding:4px 0 8px;min-width:0;
+    border-top:1px solid var(--line-soft);
+  }
+  .nav-links .has-dropdown > a::after{display:none}
+  .dropdown a{padding:10px clamp(28px,6vw,52px) !important;font-size:14px}
+
+  /* Hamburger → X animation on checked */
+  .nav-checkbox:checked ~ .nav-toggle .ham-top{transform:rotate(45deg) translate(3px,4px)}
+  .nav-checkbox:checked ~ .nav-toggle .ham-mid{opacity:0}
+  .nav-checkbox:checked ~ .nav-toggle .ham-bot{transform:rotate(-45deg) translate(3px,-4px)}
+
+  /* Logo compacts slightly */
+  .logo-mark{width:44px;height:44px}
+  .logo-name{font-size:17px}
+  .logo-sub{font-size:9px;letter-spacing:.22em}
+
+  /* Topbar: hide hours, drop location to keep room for phone+email */
+  .topbar-right{display:none}
+  .topbar-left{gap:14px}
+  .topbar-left > span{display:none}
+
+  /* Steps: 2-col → 1-col with border flip (right → bottom) */
+  .steps{grid-template-columns:1fr}
+  .steps .step{
+    padding:20px 0;
+    border-right:none !important;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .steps .step:last-child{border-bottom:none}
+
+  /* Footer: 2-col → 1-col */
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+
+  /* Hero: tighter vertical padding, sub full-width */
+  .hero-inner{padding:72px 0 96px}
+  .hero-sub{max-width:100%}
+  .hero-cta{flex-wrap:wrap;gap:10px}
+
+  /* Hero metrics: tighten card padding, smaller number */
+  .hero-metric{padding:16px 18px}
+  .hero-metric-num{font-size:26px}
+
+  /* Page-hero (service pages) */
+  .page-hero{padding:60px 0 100px;min-height:320px}
+
+  /* Forms */
+  .form-row{grid-template-columns:1fr;gap:14px}
+}
+
+/* ===== Small phones (≤480px) ===== */
+@media (max-width:480px){
+  /* Topbar: only keep phone number; hide email + hours to prevent wrap */
+  .topbar-left a[href^="mailto:"]{display:none}
+  .topbar-left{gap:10px;font-size:12px}
+  .topbar-left svg{width:11px;height:11px}
+
+  /* Nav: drop sub-tagline, shrink logo */
+  .logo-mark{width:40px;height:40px}
+  .logo-name{font-size:15px}
+  .logo-sub{display:none}
+  .nav-inner{padding:12px 0}
+
+  /* Sectors: 2-col → 1-col */
+  .sectors-grid{grid-template-columns:1fr}
+
+  /* Hero: more compact */
+  .hero-inner{padding:56px 0 72px}
+  .hero-metrics{gap:8px}
+  .hero-metric{padding:12px 14px}
+  .hero-metric-num{font-size:22px}
+  .hero-metric-lbl{font-size:10px;letter-spacing:.12em}
+
+  /* Buttons: slightly smaller so they don't overflow cards */
+  .btn{padding:11px 18px;font-size:12px}
+
+  /* About/contact gaps */
+  .about-grid,.contact-grid,.why-grid{gap:32px}
+
+  /* Page hero even tighter */
+  .page-hero{padding:48px 0 72px;min-height:260px}
 }
 
 /* ===== Service Page Hero ===== */
