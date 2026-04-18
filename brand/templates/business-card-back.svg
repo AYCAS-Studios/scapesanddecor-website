@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 456" role="img" aria-label="Scapes &amp; Décor business card back">
+  <defs>
+    <style>
+      .pf{font-family:'Playfair Display','Didot',Georgia,serif}
+      .inter{font-family:'Inter','Helvetica Neue',Arial,sans-serif}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="756" height="456" fill="#FDFBF8"/>
+  <!-- thin accents -->
+  <rect x="0" y="0" width="756" height="8" fill="#2E5E3E"/>
+  <rect x="0" y="8" width="756" height="2" fill="#C4834A"/>
+
+  <!-- small mark, top-left -->
+  <g transform="translate(48 46)">
+    <circle cx="28" cy="28" r="25.5" fill="none" stroke="#B8973C" stroke-width="0.9"/>
+    <text x="22" y="39" class="pf" font-size="30" font-weight="700" fill="#2E5E3E" text-anchor="middle">S</text>
+    <text x="35" y="39" class="pf" font-size="30" font-weight="700" fill="#C4834A" text-anchor="middle">D</text>
+  </g>
+
+  <!-- name + title -->
+  <text x="48" y="180" class="pf" font-size="36" font-weight="700" fill="#22281E">Augustine Gabaza</text>
+  <text x="48" y="208" class="inter" font-size="11" font-weight="600" letter-spacing="3.5" fill="#6B7264">DIRECTOR</text>
+
+  <!-- contact block -->
+  <g class="inter" font-size="14" fill="#22281E">
+    <text x="48" y="268">0777 299 904</text>
+    <text x="48" y="292">agabaza@scapesanddecor.com</text>
+    <text x="48" y="316">www.scapesanddecor.com</text>
+    <text x="48" y="340">108 McChlery Avenue, Harare</text>
+  </g>
+
+  <!-- right accent bar -->
+  <rect x="720" y="46" width="3" height="340" fill="#C4834A"/>
+
+  <!-- tagline -->
+  <text x="380" y="424" class="pf" font-style="italic" font-size="12" fill="#6B7264" text-anchor="middle">Property services for improved, maintained and well-presented environments.</text>
+</svg>

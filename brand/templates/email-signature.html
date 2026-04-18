@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Email signature — Scapes & Décor</title>
+<style>
+  body{background:#F7F4EF;font-family:'Inter','Helvetica Neue',Arial,sans-serif;padding:40px;margin:0;color:#22281E}
+  .panel{background:#FDFBF8;max-width:720px;margin:0 auto;padding:32px;border:1px solid rgba(34,40,30,.12)}
+  .panel h1{font-family:'Playfair Display',Georgia,serif;font-size:24px;margin:0 0 8px;font-weight:600}
+  .panel .hint{font-size:13px;color:#6B7264;margin:0 0 24px}
+  .sig{background:#fff;padding:20px;border:1px dashed #ccc}
+  .instructions{margin-top:24px;font-size:13px;line-height:1.6;color:#22281E}
+  .instructions code{background:#F7F4EF;padding:2px 6px;border-radius:2px;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+  button{background:#2E5E3E;color:#FDFBF8;border:none;padding:10px 18px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;cursor:pointer;border-radius:2px;margin-top:12px}
+  button:hover{background:#1F4029}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="panel">
+  <h1>Email signature</h1>
+  <p class="hint">Copy the block below into your email client's signature settings (Gmail, Outlook, Apple Mail — paste as rich/HTML).</p>
+
+  <div class="sig" id="sig">
+    <table cellpadding="0" cellspacing="0" border="0" style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:#22281E;line-height:1.5;border-collapse:collapse">
+      <tr>
+        <td style="vertical-align:top;padding-right:20px;border-right:2px solid #B8973C">
+          <svg width="64" height="64" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="25.5" fill="none" stroke="#B8973C" stroke-width="0.9"/>
+            <text x="22" y="39" font-family="'Playfair Display',Georgia,serif" font-size="30" font-weight="700" fill="#2E5E3E" text-anchor="middle">S</text>
+            <text x="35" y="39" font-family="'Playfair Display',Georgia,serif" font-size="30" font-weight="700" fill="#C4834A" text-anchor="middle">D</text>
+          </svg>
+        </td>
+        <td style="vertical-align:top;padding-left:20px">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:700;color:#22281E;line-height:1.2">Augustine Gabaza</div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6B7264;margin-top:4px;font-weight:600">Director · Scapes &amp; Décor (Pvt) Ltd</div>
+          <div style="margin-top:12px;font-size:13px;color:#22281E;line-height:1.6">
+            <a href="tel:+263777299904" style="color:#22281E;text-decoration:none">0777 299 904</a> ·
+            <a href="mailto:agabaza@scapesanddecor.com" style="color:#22281E;text-decoration:none">agabaza@scapesanddecor.com</a><br/>
+            <a href="https://wa.me/263777299904" style="color:#C4834A;text-decoration:none;font-weight:600">WhatsApp →</a> ·
+            <a href="https://www.scapesanddecor.com" style="color:#22281E;text-decoration:none">www.scapesanddecor.com</a><br/>
+            108 McChlery Avenue, Harare, Zimbabwe
+          </div>
+          <div style="margin-top:10px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:#6B7264">Property services for improved, maintained and well-presented environments.</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button onclick="copySig()">Copy HTML to clipboard</button>
+  <p class="instructions" id="status"></p>
+
+  <div class="instructions">
+    <strong>How to install:</strong>
+    <ul>
+      <li><strong>Gmail</strong>: Settings → See all settings → General → Signature. Paste the copied HTML into the signature editor.</li>
+      <li><strong>Outlook (desktop)</strong>: File → Options → Mail → Signatures. Paste into the editor.</li>
+      <li><strong>Apple Mail</strong>: Mail → Settings → Signatures. Paste directly; keep "Always match my default message font" unchecked.</li>
+    </ul>
+    Replace <code>Augustine Gabaza</code> and <code>Director</code> with your own name and title before installing.
+  </div>
+</div>
+
+<script>
+function copySig(){
+  const sig = document.getElementById('sig').firstElementChild;
+  const html = sig.outerHTML;
+  // Use Clipboard API with rich HTML
+  const item = new ClipboardItem({
+    'text/html': new Blob([html], {type:'text/html'}),
+    'text/plain': new Blob([sig.innerText], {type:'text/plain'}),
+  });
+  navigator.clipboard.write([item]).then(
+    () => { document.getElementById('status').textContent = 'Copied. Paste into your email client signature settings.'; },
+    () => {
+      // fallback: selection copy
+      const range = document.createRange();
+      range.selectNode(sig);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      document.getElementById('status').textContent = 'Copied via fallback. Paste into your email client.';
+    }
+  );
+}
+</script>
+</body>
+</html>

@@ -4,475 +4,58 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scapes & Décor — Property Services</title>
+<meta name="description" content="Scapes & Décor is a Zimbabwean property services firm delivering landscaping, maintenance, painting & finishing, solar lighting and project delivery for residential estates, commercial premises and institutional clients across Harare." />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Scapes & Décor" />
+<meta property="og:title" content="Scapes & Décor — Property Services" />
+<meta property="og:description" content="Scapes & Décor is a Zimbabwean property services firm delivering landscaping, maintenance, painting & finishing, solar lighting and project delivery for residential estates, commercial premises and institutional clients across Harare." />
+<meta property="og:locale" content="en_ZW" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="brand/favicon/apple-touch-icon.svg">
+<meta name="theme-color" content="#2E5E3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --forest:#2E5E3E;
-    --forest-deep:#1F4029;
-    --clay:#C4834A;
-    --gold:#B8973C;
-    --stone:#F7F4EF;
-    --linen:#FDFBF8;
-    --charcoal:#22281E;
-    --slate:#6B7264;
-    --line:rgba(34,40,30,.12);
-    --line-soft:rgba(34,40,30,.06);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:'Inter', system-ui, sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    color:var(--charcoal);
-    background:var(--stone);
-    -webkit-font-smoothing:antialiased;
-  }
-  .serif{font-family:'Playfair Display', Georgia, serif}
-  .italic{font-style:italic}
-  .mono{font-family:ui-monospace, 'SF Mono', Menlo, monospace}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-
-  .container{max-width:1280px;margin:0 auto;padding:0 40px}
-  .wide{max-width:1440px;margin:0 auto;padding:0 40px}
-
-  /* ===== Top Bar ===== */
-  .topbar{
-    background:var(--forest-deep);
-    color:#E7E0D0;
-    font-size:13px;
-    padding:8px 0;
-    letter-spacing:.02em;
-  }
-  .topbar-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .topbar-left{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
-  .topbar-left span{display:inline-flex;align-items:center;gap:8px;opacity:.85}
-  .topbar-left svg{opacity:.7}
-  .topbar-right{display:flex;gap:18px;opacity:.7;font-size:12px;letter-spacing:.15em;text-transform:uppercase}
-
-  /* ===== Nav ===== */
-  nav.main{
-    background:var(--linen);
-    border-bottom:1px solid var(--line);
-    position:sticky;top:0;z-index:50;
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
-  .logo{display:flex;align-items:center;gap:14px}
-  .logo-mark{
-    width:52px;height:52px;
-    display:block;
-    flex-shrink:0;
-  }
-  .logo-mark svg{width:100%;height:100%;display:block}
-  .logo-text{display:flex;flex-direction:column;line-height:1}
-  .logo-name{font-family:'Playfair Display', serif;font-size:20px;font-weight:700;color:var(--charcoal);letter-spacing:.01em}
-  .logo-name em{color:var(--clay);font-style:italic;font-weight:400}
-  .logo-sub{font-size:10px;letter-spacing:.28em;color:var(--slate);text-transform:uppercase;margin-top:4px}
-
-  .nav-links{display:flex;gap:36px;list-style:none;margin:0;padding:0}
-  .nav-links a{
-    font-size:14px;color:var(--charcoal);font-weight:500;
-    padding:8px 0;position:relative;letter-spacing:.01em;
-    transition:color .2s;
-  }
-  .nav-links a:hover{color:var(--forest)}
-  .nav-links a.active{color:var(--forest)}
-  .nav-links a.active::after{
-    content:"";position:absolute;left:0;right:0;bottom:-2px;
-    height:2px;background:var(--clay);
-  }
-
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:12px 22px;
-    font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
-    letter-spacing:.08em;text-transform:uppercase;
-    border-radius:2px;cursor:pointer;
-    transition:all .2s;border:none;
-  }
-  .btn-primary{background:var(--forest);color:var(--linen)}
-  .btn-primary:hover{background:var(--forest-deep)}
-  .btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--charcoal)}
-  .btn-outline:hover{background:var(--charcoal);color:var(--linen)}
-  .btn-light{background:rgba(253,251,248,.1);color:var(--linen);border:1px solid rgba(253,251,248,.3)}
-  .btn-light:hover{background:var(--linen);color:var(--forest)}
-  .btn-clay{background:var(--clay);color:var(--linen)}
-  .btn-clay:hover{background:#a96e38}
-  .btn svg{width:14px;height:14px}
-
-  /* ===== Hero ===== */
-  .hero{
-    position:relative;
-    min-height:720px;
-    overflow:hidden;
-    background:var(--forest-deep);
-  }
-  .hero-bg{
-    position:absolute;inset:0;
-    background:
-      linear-gradient(135deg, rgba(31,64,41,.82), rgba(34,40,30,.55) 50%, rgba(31,64,41,.35)),
-      repeating-linear-gradient(115deg, #2E5E3E 0 14px, #264E33 14px 28px, #335E45 28px 46px, #3F6A51 46px 64px, #2E5E3E 64px 90px);
-  }
-  .hero-bg::before{
-    content:"";position:absolute;inset:0;
-    background:
-      radial-gradient(ellipse at 20% 80%, rgba(196,131,74,.18), transparent 45%),
-      radial-gradient(ellipse at 85% 20%, rgba(184,151,60,.15), transparent 40%);
-  }
-  .hero-inner{
-    position:relative;z-index:2;
-    padding:96px 0 120px;
-    color:var(--linen);
-  }
-  .hero-eyebrow{
-    display:inline-flex;align-items:center;gap:14px;
-    font-size:12px;letter-spacing:.28em;text-transform:uppercase;
-    color:#E7E0D0;margin-bottom:32px;
-  }
-  .hero-eyebrow .bar{width:40px;height:1px;background:var(--clay)}
-  .hero-title{
-    font-family:'Playfair Display', serif;
-    font-size:clamp(44px, 6vw, 78px);
-    line-height:1.05;
-    font-weight:600;
-    margin:0 0 28px;
-    max-width:960px;
-    letter-spacing:-.01em;
-  }
-  .hero-title em{color:var(--clay);font-weight:500}
-  .hero-sub{
-    font-size:18px;line-height:1.6;
-    color:#E7E0D0;
-    max-width:560px;margin:0 0 44px;
-    font-weight:300;
-  }
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-
-  .hero-badge{
-    position:absolute;right:40px;top:96px;
-    background:rgba(253,251,248,.08);
-    backdrop-filter:blur(8px);
-    border:1px solid rgba(253,251,248,.18);
-    padding:20px 24px;border-radius:2px;
-    color:var(--linen);width:260px;z-index:3;
-  }
-  .hero-badge-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-  .hero-badge-title{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;line-height:1.3;margin-bottom:14px;color:var(--linen)}
-  .hero-badge-meta{font-size:12px;color:#E7E0D0;opacity:.8;border-top:1px solid rgba(253,251,248,.2);padding-top:12px;display:flex;justify-content:space-between}
-
-  .hero-metrics{
-    position:absolute;left:0;right:0;bottom:0;z-index:3;
-    display:grid;grid-template-columns:repeat(4,1fr);
-    background:rgba(31,64,41,.65);
-    backdrop-filter:blur(10px);
-    border-top:1px solid rgba(253,251,248,.12);
-  }
-  .hero-metric{
-    padding:24px 32px;
-    color:var(--linen);
-    border-right:1px solid rgba(253,251,248,.1);
-    display:flex;flex-direction:column;gap:4px;
-  }
-  .hero-metric:last-child{border-right:none}
-  .hero-metric-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;color:var(--gold);line-height:1}
-  .hero-metric-lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#E7E0D0;opacity:.75;margin-top:6px}
-
-  /* ===== Section scaffolding ===== */
-  section{padding:120px 0;position:relative}
-  .section-label{
-    display:inline-flex;align-items:center;gap:14px;
-    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--clay);font-weight:600;margin-bottom:20px;
-  }
-  .section-label .bar{width:40px;height:1px;background:var(--clay)}
-  .section-title{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(36px, 4vw, 54px);
-    line-height:1.1;font-weight:600;
-    margin:0 0 20px;max-width:780px;
-    letter-spacing:-.01em;
-  }
-  .section-title em{color:var(--clay);font-weight:500}
-  .section-intro{font-size:17px;color:var(--slate);max-width:640px;line-height:1.65}
-
-  .section-header{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:64px}
-
-  /* ===== Services ===== */
-  #services{background:var(--linen)}
-  .services-grid{
-    display:grid;grid-template-columns:repeat(12,1fr);gap:24px;
-  }
-  .service-card{
-    background:var(--stone);
-    border:1px solid var(--line-soft);
-    overflow:hidden;
-    position:relative;
-    display:flex;flex-direction:column;
-    transition:transform .3s, box-shadow .3s;
-    cursor:pointer;
-  }
-  .service-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(34,40,30,.25)}
-  .service-card.big{grid-column:span 6;min-height:520px}
-  .service-card.small{grid-column:span 3;min-height:440px}
-  .service-card.wide{grid-column:span 6;min-height:440px}
-
-  .service-img{
-    position:relative;height:260px;overflow:hidden;
-    background:var(--forest);
-  }
-  .service-card.big .service-img{height:320px}
-  .svg-ph{
-    width:100%;height:100%;
-    display:grid;place-items:center;
-    font-family:ui-monospace,monospace;font-size:10px;
-    color:rgba(253,251,248,.45);letter-spacing:.1em;
-    text-align:center;padding:0 20px;
-  }
-  .ph-landscape{background:
-    repeating-linear-gradient(108deg, #2E5E3E 0 8px, #3A6B48 8px 18px, #466f4f 18px 32px, #2E5E3E 32px 48px);}
-  .ph-maint{background:
-    repeating-linear-gradient(92deg, #6B7264 0 10px, #7d8278 10px 22px, #5e655b 22px 36px);}
-  .ph-paint{background:
-    repeating-linear-gradient(122deg, #C4834A 0 8px, #b57338 8px 18px, #d59461 18px 34px, #C4834A 34px 52px);}
-  .ph-solar{background:
-    repeating-linear-gradient(180deg, #1F4029 0 6px, #2E5E3E 6px 14px, #B8973C 14px 15px, #2E5E3E 15px 28px);}
-  .ph-project{background:
-    repeating-linear-gradient(80deg, #22281E 0 12px, #2f352b 12px 24px, #3b4237 24px 38px);}
-
-  .service-img::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, transparent 50%, rgba(34,40,30,.4));
-    pointer-events:none;
-  }
-
-  .service-num{
-    position:absolute;top:18px;left:20px;
-    font-family:'Playfair Display',serif;font-size:14px;font-style:italic;
-    color:var(--linen);opacity:.9;z-index:2;letter-spacing:.05em;
-  }
-  .service-num::before{content:"";display:inline-block;width:20px;height:1px;background:var(--gold);vertical-align:middle;margin-right:10px}
-
-  .service-body{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column}
-  .service-name{
-    font-family:'Playfair Display',serif;
-    font-size:28px;font-weight:600;margin:0 0 10px;
-    color:var(--charcoal);
-  }
-  .service-card.big .service-name{font-size:34px}
-  .service-desc{color:var(--slate);font-size:15px;line-height:1.6;margin:0 0 20px;flex:1}
-  .service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-  .service-tag{
-    font-size:11px;letter-spacing:.06em;
-    padding:5px 10px;
-    background:rgba(196,131,74,.08);
-    color:var(--clay);border-radius:2px;
-    font-weight:500;
-  }
-  .service-link{
-    display:inline-flex;align-items:center;gap:10px;
-    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--forest);font-weight:600;
-    padding-top:16px;border-top:1px solid var(--line-soft);
-  }
-  .service-link svg{width:14px;height:14px;transition:transform .2s}
-  .service-card:hover .service-link svg{transform:translateX(4px)}
-
-  /* ===== About ===== */
-  #about{background:var(--stone);overflow:hidden}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-  .about-visual{
-    position:relative;
-    aspect-ratio:4/5;
-    background:var(--forest);
-    overflow:hidden;
-  }
-  .about-visual .svg-ph{
-    background:
-      linear-gradient(135deg, rgba(31,64,41,.3), transparent),
-      repeating-linear-gradient(98deg, #2E5E3E 0 18px, #3a6b48 18px 38px, #264E33 38px 62px, #466f4f 62px 88px);
-  }
-  .about-stamp{
-    position:absolute;bottom:24px;right:24px;
-    background:var(--linen);
-    padding:20px 24px;
-    max-width:260px;
-  }
-  .about-stamp-year{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;font-weight:600;color:var(--forest);line-height:1}
-  .about-stamp-txt{font-size:12px;color:var(--slate);letter-spacing:.1em;text-transform:uppercase;margin-top:8px;border-top:1px solid var(--line);padding-top:10px}
-
-  .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px}
-  .vm-card{
-    background:var(--linen);
-    padding:32px 28px;
-    border-top:3px solid var(--clay);
-  }
-  .vm-card.gold{border-top-color:var(--gold)}
-  .vm-label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--slate);margin-bottom:12px;font-weight:600}
-  .vm-text{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--charcoal);margin:0}
-
-  .about-quote{
-    font-family:'Playfair Display',serif;font-style:italic;
-    font-size:22px;line-height:1.5;color:var(--charcoal);
-    padding:0 0 0 24px;border-left:2px solid var(--clay);
-    margin:32px 0 0;
-  }
-
-  /* ===== Approach ===== */
-  #approach{background:var(--forest-deep);color:var(--linen);overflow:hidden}
-  #approach .section-title{color:var(--linen)}
-  #approach .section-title em{color:var(--gold)}
-  #approach .section-intro{color:#E7E0D0}
-  #approach .section-label{color:var(--gold)}
-  #approach .section-label .bar{background:var(--gold)}
-
-  .steps{
-    display:grid;grid-template-columns:repeat(5,1fr);
-    gap:0;
-    border-top:1px solid rgba(253,251,248,.15);
-    margin-top:40px;
-  }
-  .step{
-    padding:32px 24px 32px 0;
-    border-right:1px solid rgba(253,251,248,.12);
-    position:relative;
-  }
-  .step:last-child{border-right:none}
-  .step-num{
-    font-family:'Playfair Display',serif;
-    font-size:64px;font-style:italic;font-weight:400;
-    color:var(--gold);line-height:1;margin-bottom:18px;
-    display:flex;align-items:baseline;gap:8px;
-  }
-  .step-num sup{font-size:14px;color:#E7E0D0;font-style:normal;font-family:'Inter',sans-serif;letter-spacing:.2em;opacity:.6}
-  .step-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin:0 0 10px;color:var(--linen)}
-  .step-desc{font-size:14px;color:#E7E0D0;line-height:1.6;opacity:.85}
-
-  /* ===== Sectors ===== */
-  #sectors{background:var(--linen)}
-  .sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:40px;border:1px solid var(--line)}
-  .sector{background:var(--linen);padding:40px 32px;display:flex;flex-direction:column;gap:14px;min-height:240px;transition:background .2s}
-  .sector:hover{background:var(--stone)}
-  .sector-icon{
-    width:48px;height:48px;
-    display:grid;place-items:center;
-    background:rgba(46,94,62,.08);color:var(--forest);
-    border-radius:2px;
-  }
-  .sector-icon svg{width:24px;height:24px;stroke-width:1.5}
-  .sector-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin:0;color:var(--charcoal)}
-  .sector-desc{font-size:14px;color:var(--slate);line-height:1.6;margin:0}
-
-  /* ===== Why Choose Us ===== */
-  #why{background:var(--stone)}
-  .why-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
-  .why-list{display:grid;gap:2px;background:var(--line);border:1px solid var(--line)}
-  .why-item{
-    background:var(--linen);
-    padding:28px 32px;
-    display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center;
-    transition:background .2s;
-  }
-  .why-item:hover{background:#fffdf7}
-  .why-num{font-family:'Playfair Display',serif;font-style:italic;font-size:32px;color:var(--clay);font-weight:600;line-height:1}
-  .why-text h4{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin:0 0 4px;color:var(--charcoal)}
-  .why-text p{font-size:14px;color:var(--slate);margin:0;line-height:1.55}
-  .why-arrow{color:var(--forest);opacity:.3}
-
-  /* ===== Contact ===== */
-  #contact{background:var(--linen);padding:120px 0 0}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-  .contact-form{display:grid;gap:20px;margin-top:32px}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .field label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:8px;font-weight:600}
-  .field input, .field select, .field textarea{
-    width:100%;padding:14px 16px;
-    border:1px solid var(--line);background:var(--stone);
-    font-family:'Inter',sans-serif;font-size:15px;
-    color:var(--charcoal);border-radius:2px;
-    transition:border-color .2s;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--forest)}
-  .field textarea{resize:vertical;min-height:120px;font-family:'Inter',sans-serif}
-
-  .contact-info{display:grid;gap:4px;margin-top:32px}
-  .ci{
-    padding:22px 0;border-bottom:1px solid var(--line);
-    display:grid;grid-template-columns:120px 1fr;align-items:baseline;gap:20px;
-  }
-  .ci:last-child{border-bottom:none}
-  .ci-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);font-weight:600}
-  .ci-value{font-family:'Playfair Display',serif;font-size:22px;color:var(--charcoal);font-weight:500}
-  .ci-value.small{font-size:18px}
-
-  .map-strip{
-    margin-top:100px;
-    height:280px;
-    background:
-      linear-gradient(180deg, rgba(247,244,239,.3), rgba(247,244,239,.9)),
-      repeating-linear-gradient(45deg, #F7F4EF 0 40px, #EFE8DB 40px 42px, #F7F4EF 42px 80px),
-      repeating-linear-gradient(-45deg, transparent 0 60px, rgba(107,114,100,.08) 60px 62px);
-    position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  }
-  .map-pin{
-    position:absolute;left:50%;top:45%;transform:translate(-50%,-100%);
-    display:flex;flex-direction:column;align-items:center;gap:8px;
-  }
-  .map-pin-marker{
-    width:24px;height:24px;border-radius:50%;
-    background:var(--clay);
-    box-shadow:0 0 0 6px rgba(196,131,74,.25), 0 4px 12px rgba(34,40,30,.2);
-  }
-  .map-pin-label{
-    background:var(--linen);padding:8px 14px;
-    font-size:12px;font-weight:600;letter-spacing:.08em;
-    color:var(--charcoal);
-    box-shadow:0 4px 12px rgba(34,40,30,.12);
-  }
-
-  /* ===== Footer ===== */
-  footer{background:var(--charcoal);color:#D4D3CC;padding:80px 0 32px}
-  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
-  .footer-brand .logo-name{color:var(--linen)}
-  .footer-brand .logo-sub{color:rgba(253,251,248,.5)}
-  .footer-brand p{font-size:14px;color:rgba(253,251,248,.6);margin:18px 0 0;line-height:1.6;max-width:320px}
-  .footer-col h5{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 20px;font-weight:600}
-  .footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-  .footer-col a{font-size:14px;color:rgba(253,251,248,.75);transition:color .2s}
-  .footer-col a:hover{color:var(--linen)}
-  .footer-bar{border-top:1px solid rgba(253,251,248,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12px;color:rgba(253,251,248,.5);letter-spacing:.05em}
-  .footer-bar em{color:var(--clay);font-style:normal}
-
-  @media (max-width:980px){
-    .nav-links{display:none}
-    .about-grid,.contact-grid,.why-grid{grid-template-columns:1fr;gap:48px}
-    .services-grid .service-card{grid-column:span 12}
-    .steps{grid-template-columns:repeat(2,1fr)}
-    .sectors-grid,.footer-grid{grid-template-columns:1fr 1fr}
-    .hero-metrics{grid-template-columns:1fr 1fr}
-    .hero-badge{display:none}
-  }
-</style>
+<link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Scapes & Décor (Pvt) Ltd",
+  "description": "Zimbabwean property services — landscaping, maintenance, painting & finishing, solar lighting and project delivery.",
+  "url": "https://www.scapesanddecor.com",
+  "telephone": "+263777299904",
+  "email": "agabaza@scapesanddecor.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "108 McChlery Avenue",
+    "addressLocality": "Harare",
+    "addressCountry": "ZW"
+  },
+  "foundingDate": "2014",
+  "areaServed": "Zimbabwe",
+  "openingHours": "Mo-Fr 08:00-17:00"
+}
+</script>
 </head>
 <body>
 
-<!-- ===== Top Bar ===== -->
 <div class="topbar">
   <div class="container topbar-inner">
     <div class="topbar-left">
-      <span>
+      <a href="tel:+263777299904">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         0777 299 904
-      </span>
-      <span>
+      </a>
+      <a href="mailto:agabaza@scapesanddecor.com">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         agabaza@scapesanddecor.com
-      </span>
+      </a>
       <span>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        108 McIlwraith Ave, Eastlea, Harare
+        108 McChlery Ave, Harare
       </span>
     </div>
     <div class="topbar-right">
@@ -481,22 +64,14 @@
   </div>
 </div>
 
-<!-- ===== Nav ===== -->
 <nav class="main">
   <div class="container nav-inner">
     <div class="logo">
       <div class="logo-mark">
         <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Scapes & Décor mark">
-          <circle cx="28" cy="28" r="26" stroke="#2E5E3E" stroke-width="1" opacity="0.35"/>
-          <circle cx="28" cy="28" r="23" stroke="#2E5E3E" stroke-width="0.6" opacity="0.2"/>
-          <path d="M 16 40 L 16 26 L 28 16 L 40 26 L 40 40 Z" fill="#2E5E3E"/>
-          <rect x="34" y="19" width="2.6" height="5.2" fill="#2E5E3E"/>
-          <path d="M 25 40 L 25 32 Q 25 30, 28 30 Q 31 30, 31 32 L 31 40 Z" fill="#C4834A"/>
-          <rect x="19" y="29" width="3.4" height="3.4" fill="#B8973C"/>
-          <rect x="33.6" y="29" width="3.4" height="3.4" fill="#B8973C"/>
-          <path d="M 16 26 L 28 16 L 40 26" stroke="#B8973C" stroke-width="0.8" fill="none" stroke-linejoin="round"/>
-          <line x1="10" y1="41.5" x2="46" y2="41.5" stroke="#22281E" stroke-width="0.9"/>
-          <line x1="14" y1="44" x2="42" y2="44" stroke="#C4834A" stroke-width="0.6" opacity="0.8"/>
+          <circle cx="28" cy="28" r="25.5" stroke="#B8973C" stroke-width="0.9"/>
+          <text x="22" y="39" font-family="'Playfair Display', 'Didot', Georgia, serif" font-size="30" font-weight="700" fill="#2E5E3E" text-anchor="middle" aria-hidden="true">S</text>
+          <text x="35" y="39" font-family="'Playfair Display', 'Didot', Georgia, serif" font-size="30" font-weight="700" fill="#C4834A" text-anchor="middle" aria-hidden="true">D</text>
         </svg>
       </div>
       <div class="logo-text">
@@ -506,19 +81,25 @@
     </div>
     <ul class="nav-links">
       <li><a href="#top" class="active">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#sectors">Sectors</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li class="has-dropdown">
+        <a href="#services">Services</a>
+        <ul class="dropdown">
+          <li><a href="services/landscaping.html"><span class="dd-num">01</span>Landscaping</a></li>
+          <li><a href="services/maintenance.html"><span class="dd-num">02</span>Property Maintenance</a></li>
+          <li><a href="services/painting.html"><span class="dd-num">03</span>Painting &amp; Finishing</a></li>
+          <li><a href="services/solar-lighting.html"><span class="dd-num">04</span>Solar Lighting</a></li>
+          <li><a href="services/project-delivery.html"><span class="dd-num">05</span>Project Delivery</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a class="btn btn-primary" href="#contact">Request Quote
+    <a class="btn btn-primary" href="contact.html">Request Quote
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
 </nav>
 
-<!-- ===== Hero ===== -->
 <header class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="container hero-inner">
@@ -532,7 +113,7 @@
       <a class="btn btn-clay" href="#services">Explore Services
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-      <a class="btn btn-light" href="#contact">Book a Site Visit</a>
+      <a class="btn btn-light" href="contact.html">Book a Site Visit</a>
     </div>
   </div>
 
@@ -550,7 +131,6 @@
   </div>
 </header>
 
-<!-- ===== Services ===== -->
 <section id="services">
   <div class="container">
     <div class="section-header">
@@ -563,213 +143,113 @@
 
     <div class="services-grid">
       <article class="service-card big">
-        <div class="service-img">
-          <div class="svg-ph ph-landscape">[ LANDSCAPING · lawn · beds · hardscape ]</div>
-          <div class="service-num">01 / Flagship</div>
-        </div>
-        <div class="service-body">
-          <h3 class="service-name">Landscaping</h3>
-          <p class="service-desc">Design, installation and long-term care of estate grounds — from lawn establishment and irrigation to planting schemes, hedging and hardscape features that sit comfortably in the Zimbabwean climate.</p>
-          <div class="service-tags">
-            <span class="service-tag">Lawn establishment</span>
-            <span class="service-tag">Irrigation</span>
-            <span class="service-tag">Soft & hardscape</span>
-            <span class="service-tag">Grounds care</span>
+        <a href="services/landscaping.html" style="display:contents">
+          <div class="service-img">
+            <div class="svg-ph ph-landscape">[ LANDSCAPING · lawn · beds · hardscape ]</div>
+            <div class="service-num">01 / Flagship</div>
           </div>
-          <a class="service-link" href="#">Explore Landscaping
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
+          <div class="service-body">
+            <h3 class="service-name">Landscaping</h3>
+            <p class="service-desc">Design, installation and long-term care of estate grounds — from lawn establishment and irrigation to planting schemes, hedging and hardscape features that sit comfortably in the Zimbabwean climate.</p>
+            <div class="service-tags">
+              <span class="service-tag">Lawn establishment</span>
+              <span class="service-tag">Irrigation</span>
+              <span class="service-tag">Soft & hardscape</span>
+              <span class="service-tag">Grounds care</span>
+            </div>
+            <span class="service-link">Explore Landscaping
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
       </article>
 
       <article class="service-card small">
-        <div class="service-img">
-          <div class="svg-ph ph-maint">[ MAINTENANCE · handyman · repair ]</div>
-          <div class="service-num">02</div>
-        </div>
-        <div class="service-body">
-          <h3 class="service-name">Property Maintenance</h3>
-          <p class="service-desc">Scheduled and reactive upkeep — plumbing, electrical, carpentry, roofing — on retainer or call-out.</p>
-          <div class="service-tags">
-            <span class="service-tag">Retainers</span>
-            <span class="service-tag">Call-out</span>
+        <a href="services/maintenance.html" style="display:contents">
+          <div class="service-img">
+            <div class="svg-ph ph-maint">[ MAINTENANCE · handyman · repair ]</div>
+            <div class="service-num">02</div>
           </div>
-          <a class="service-link" href="#">Explore
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
+          <div class="service-body">
+            <h3 class="service-name">Property Maintenance</h3>
+            <p class="service-desc">Scheduled and reactive upkeep — plumbing, electrical, carpentry, roofing — on retainer or call-out.</p>
+            <div class="service-tags">
+              <span class="service-tag">Retainers</span>
+              <span class="service-tag">Call-out</span>
+            </div>
+            <span class="service-link">Explore
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
       </article>
 
       <article class="service-card small">
-        <div class="service-img">
-          <div class="svg-ph ph-paint">[ PAINTING · interiors · exteriors ]</div>
-          <div class="service-num">03</div>
-        </div>
-        <div class="service-body">
-          <h3 class="service-name">Painting & Finishing</h3>
-          <p class="service-desc">Interior and exterior painting, surface prep and decorative finishes — crisp, durable, on schedule.</p>
-          <div class="service-tags">
-            <span class="service-tag">Interior</span>
-            <span class="service-tag">Exterior</span>
+        <a href="services/painting.html" style="display:contents">
+          <div class="service-img">
+            <div class="svg-ph ph-paint">[ PAINTING · interiors · exteriors ]</div>
+            <div class="service-num">03</div>
           </div>
-          <a class="service-link" href="#">Explore
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
+          <div class="service-body">
+            <h3 class="service-name">Painting & Finishing</h3>
+            <p class="service-desc">Interior and exterior painting, surface prep and decorative finishes — crisp, durable, on schedule.</p>
+            <div class="service-tags">
+              <span class="service-tag">Interior</span>
+              <span class="service-tag">Exterior</span>
+            </div>
+            <span class="service-link">Explore
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
       </article>
 
       <article class="service-card wide">
-        <div class="service-img">
-          <div class="svg-ph ph-solar">[ SOLAR LIGHTING · pathways · perimeter · feature ]</div>
-          <div class="service-num">04 / Off-grid</div>
-        </div>
-        <div class="service-body">
-          <h3 class="service-name">Solar Lighting</h3>
-          <p class="service-desc">Supply and installation of solar-powered pathway, perimeter and feature lighting — reducing grid dependency while keeping estates safe and beautifully lit after hours.</p>
-          <div class="service-tags">
-            <span class="service-tag">Pathway</span>
-            <span class="service-tag">Perimeter</span>
-            <span class="service-tag">Feature</span>
-            <span class="service-tag">Off-grid</span>
+        <a href="services/solar-lighting.html" style="display:contents">
+          <div class="service-img">
+            <div class="svg-ph ph-solar">[ SOLAR LIGHTING · pathways · perimeter · feature ]</div>
+            <div class="service-num">04 / Off-grid</div>
           </div>
-          <a class="service-link" href="#">Explore Solar Lighting
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
+          <div class="service-body">
+            <h3 class="service-name">Solar Lighting</h3>
+            <p class="service-desc">Supply and installation of solar-powered pathway, perimeter and feature lighting — reducing grid dependency while keeping estates safe and beautifully lit after hours.</p>
+            <div class="service-tags">
+              <span class="service-tag">Pathway</span>
+              <span class="service-tag">Perimeter</span>
+              <span class="service-tag">Feature</span>
+              <span class="service-tag">Off-grid</span>
+            </div>
+            <span class="service-link">Explore Solar Lighting
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
       </article>
 
       <article class="service-card wide">
-        <div class="service-img">
-          <div class="svg-ph ph-project">[ PROJECT DELIVERY · management · coordination ]</div>
-          <div class="service-num">05 / Turnkey</div>
-        </div>
-        <div class="service-body">
-          <h3 class="service-name">Project Delivery</h3>
-          <p class="service-desc">End-to-end project management for multi-discipline works — single point of accountability across design, procurement, execution and handover.</p>
-          <div class="service-tags">
-            <span class="service-tag">Turnkey</span>
-            <span class="service-tag">Procurement</span>
-            <span class="service-tag">Handover</span>
+        <a href="services/project-delivery.html" style="display:contents">
+          <div class="service-img">
+            <div class="svg-ph ph-project">[ PROJECT DELIVERY · management · coordination ]</div>
+            <div class="service-num">05 / Turnkey</div>
           </div>
-          <a class="service-link" href="#">Explore Project Delivery
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
+          <div class="service-body">
+            <h3 class="service-name">Project Delivery</h3>
+            <p class="service-desc">End-to-end project management for multi-discipline works — single point of accountability across design, procurement, execution and handover.</p>
+            <div class="service-tags">
+              <span class="service-tag">Turnkey</span>
+              <span class="service-tag">Procurement</span>
+              <span class="service-tag">Handover</span>
+            </div>
+            <span class="service-link">Explore Project Delivery
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ===== About ===== -->
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-visual">
-      <div class="svg-ph">[ TEAM & ESTATE · portrait-orientation photograph ]</div>
-      <div class="about-stamp">
-        <div class="about-stamp-year">2014</div>
-        <div class="about-stamp-txt">Founded in Harare</div>
-      </div>
-    </div>
-    <div>
-      <div class="section-label"><span class="bar"></span>About the Firm</div>
-      <h2 class="section-title">An estate-management firm built on <em>quiet competence.</em></h2>
-      <p class="section-intro">Scapes & Décor (Pvt) Ltd is a Zimbabwean property services company serving residential estates, commercial premises and institutional clients. We are practitioners first — the kind of team property owners keep on retainer for years.</p>
-
-      <blockquote class="about-quote">"We'd rather be the firm your estate manager trusts implicitly than the loudest name in the market."</blockquote>
-
-      <div class="vm-grid">
-        <div class="vm-card">
-          <div class="vm-label">Our Vision</div>
-          <p class="vm-text">To be Zimbabwe's most trusted name in integrated property services — setting the standard for maintained, well-presented environments.</p>
-        </div>
-        <div class="vm-card gold">
-          <div class="vm-label">Our Mission</div>
-          <p class="vm-text">To deliver grounded, accountable property services that protect asset value and elevate everyday experience.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Approach ===== -->
-<section id="approach">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-label"><span class="bar"></span>Our Approach</div>
-        <h2 class="section-title">A five-step process, <em>refined on site.</em></h2>
-      </div>
-      <p class="section-intro">Every engagement — whether a single paint job or a multi-year grounds retainer — follows the same disciplined sequence. No surprises, no drift.</p>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01<sup>—</sup></div>
-        <h3 class="step-title">Consult</h3>
-        <p class="step-desc">On-site walk-through to understand property, priorities and standards expected.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02<sup>—</sup></div>
-        <h3 class="step-title">Assess</h3>
-        <p class="step-desc">Condition report, scope definition, photography and measurable baselines.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03<sup>—</sup></div>
-        <h3 class="step-title">Plan</h3>
-        <p class="step-desc">Costed proposal, schedule and team allocation — signed off before any work begins.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04<sup>—</sup></div>
-        <h3 class="step-title">Execute</h3>
-        <p class="step-desc">Trained crews, scheduled attendance, supervision and progress updates throughout.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">05<sup>—</sup></div>
-        <h3 class="step-title">Maintain</h3>
-        <p class="step-desc">Handover, snag-list close-out and — where appropriate — ongoing care retainer.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Sectors ===== -->
-<section id="sectors">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-label"><span class="bar"></span>Client Sectors</div>
-        <h2 class="section-title">Who we serve.</h2>
-      </div>
-      <p class="section-intro">Our work sits comfortably across private estates, commercial portfolios and institutional grounds — each with its own rhythm, standards and compliance requirements.</p>
-    </div>
-
-    <div class="sectors-grid">
-      <div class="sector">
-        <div class="sector-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <h3 class="sector-name">Residential Estates</h3>
-        <p class="sector-desc">Private homes, gated communities and estate developments — grounds, common areas and villa upkeep.</p>
-      </div>
-      <div class="sector">
-        <div class="sector-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
-        </div>
-        <h3 class="sector-name">Commercial Premises</h3>
-        <p class="sector-desc">Office parks, retail centres and mixed-use developments where presentation drives tenant confidence.</p>
-      </div>
-      <div class="sector">
-        <div class="sector-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 22h20M4 22V10l8-6 8 6v12M10 22v-6h4v6"/></svg>
-        </div>
-        <h3 class="sector-name">Institutional Clients</h3>
-        <p class="sector-desc">Schools, embassies, healthcare campuses and diplomatic residences — high-compliance, long-term care.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Why Choose Us ===== -->
 <section id="why">
   <div class="container">
     <div class="why-grid">
@@ -825,66 +305,92 @@
   </div>
 </section>
 
-<!-- ===== Contact ===== -->
-<section id="contact">
-  <div class="container contact-grid">
-    <div>
-      <div class="section-label"><span class="bar"></span>Get in touch</div>
-      <h2 class="section-title">Tell us about the <em>property.</em></h2>
-      <p class="section-intro">Whether it's a one-off finishing job or a multi-year grounds retainer — share the details and we'll arrange a site visit within the week.</p>
-
-      <div class="contact-info">
-        <div class="ci"><div class="ci-label">Telephone</div><div class="ci-value">0777 299 904</div></div>
-        <div class="ci"><div class="ci-label">Email</div><div class="ci-value small">agabaza@scapesanddecor.com</div></div>
-        <div class="ci"><div class="ci-label">Website</div><div class="ci-value small">www.scapesanddecor.com</div></div>
-        <div class="ci"><div class="ci-label">Office</div><div class="ci-value small">108 McIlwraith Avenue,<br/>Eastlea, Harare</div></div>
+<section id="approach">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-label"><span class="bar"></span>Our Approach</div>
+        <h2 class="section-title">A five-step process, <em>refined on site.</em></h2>
       </div>
+      <p class="section-intro">Every engagement — whether a single paint job or a multi-year grounds retainer — follows the same disciplined sequence. No surprises, no drift.</p>
     </div>
 
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you — we will be in touch within two working days.');">
-      <div class="form-row">
-        <div class="field"><label>Full name</label><input required placeholder="Your name" /></div>
-        <div class="field"><label>Telephone</label><input required placeholder="0777 000 000" /></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01<sup>—</sup></div>
+        <h3 class="step-title">Consult</h3>
+        <p class="step-desc">On-site walk-through to understand property, priorities and standards expected.</p>
       </div>
-      <div class="field"><label>Email</label><input type="email" required placeholder="you@example.com" /></div>
-      <div class="form-row">
-        <div class="field">
-          <label>Service</label>
-          <select>
-            <option>Landscaping</option>
-            <option>Property Maintenance</option>
-            <option>Painting & Finishing</option>
-            <option>Solar Lighting</option>
-            <option>Project Delivery</option>
-            <option>Multi-discipline retainer</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Property type</label>
-          <select>
-            <option>Residential estate</option>
-            <option>Commercial premises</option>
-            <option>Institutional / Embassy</option>
-            <option>Private residence</option>
-          </select>
-        </div>
+      <div class="step">
+        <div class="step-num">02<sup>—</sup></div>
+        <h3 class="step-title">Assess</h3>
+        <p class="step-desc">Condition report, scope definition, photography and measurable baselines.</p>
       </div>
-      <div class="field"><label>Details</label><textarea placeholder="Tell us about the property, scope and any timelines…"></textarea></div>
-      <button class="btn btn-primary" type="submit" style="justify-self:start">Submit Enquiry
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-    </form>
-  </div>
-
-  <div class="map-strip">
-    <div class="map-pin">
-      <div class="map-pin-label">108 McIlwraith Ave · Eastlea</div>
-      <div class="map-pin-marker"></div>
+      <div class="step">
+        <div class="step-num">03<sup>—</sup></div>
+        <h3 class="step-title">Plan</h3>
+        <p class="step-desc">Costed proposal, schedule and team allocation — signed off before any work begins.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04<sup>—</sup></div>
+        <h3 class="step-title">Execute</h3>
+        <p class="step-desc">Trained crews, scheduled attendance, supervision and progress updates throughout.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">05<sup>—</sup></div>
+        <h3 class="step-title">Maintain</h3>
+        <p class="step-desc">Handover, snag-list close-out and — where appropriate — ongoing care retainer.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
+<section id="sectors">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-label"><span class="bar"></span>Client Sectors</div>
+        <h2 class="section-title">Who we serve.</h2>
+      </div>
+      <p class="section-intro">Our work sits comfortably across private estates, commercial portfolios and institutional grounds — each with its own rhythm, standards and compliance requirements.</p>
+    </div>
+
+    <div class="sectors-grid">
+      <div class="sector">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="sector-name">Residential Estates</h3>
+        <p class="sector-desc">Private homes, gated communities and estate developments — grounds, common areas and villa upkeep.</p>
+      </div>
+      <div class="sector">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+        </div>
+        <h3 class="sector-name">Commercial Premises</h3>
+        <p class="sector-desc">Office parks, retail centres and mixed-use developments where presentation drives tenant confidence.</p>
+      </div>
+      <div class="sector">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 22h20M4 22V10l8-6 8 6v12M10 22v-6h4v6"/></svg>
+        </div>
+        <h3 class="sector-name">Institutional Clients</h3>
+        <p class="sector-desc">Schools, embassies, healthcare campuses and diplomatic residences — high-compliance, long-term care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <h2>Ready to put us on <em>your property?</em></h2>
+    <p>Tell us about the site and we'll arrange a walk-through within the week — no obligation, no pressure.</p>
+    <a class="btn btn-clay" href="contact.html">Request Site Visit
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -892,16 +398,9 @@
         <div class="logo">
           <div class="logo-mark">
             <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Scapes & Décor mark">
-              <circle cx="28" cy="28" r="26" stroke="#FDFBF8" stroke-width="1" opacity="0.3"/>
-              <circle cx="28" cy="28" r="23" stroke="#FDFBF8" stroke-width="0.6" opacity="0.18"/>
-              <path d="M 16 40 L 16 26 L 28 16 L 40 26 L 40 40 Z" fill="#FDFBF8"/>
-              <rect x="34" y="19" width="2.6" height="5.2" fill="#FDFBF8"/>
-              <path d="M 25 40 L 25 32 Q 25 30, 28 30 Q 31 30, 31 32 L 31 40 Z" fill="#C4834A"/>
-              <rect x="19" y="29" width="3.4" height="3.4" fill="#B8973C"/>
-              <rect x="33.6" y="29" width="3.4" height="3.4" fill="#B8973C"/>
-              <path d="M 16 26 L 28 16 L 40 26" stroke="#B8973C" stroke-width="0.8" fill="none" stroke-linejoin="round"/>
-              <line x1="10" y1="41.5" x2="46" y2="41.5" stroke="#FDFBF8" stroke-width="0.9" opacity="0.8"/>
-              <line x1="14" y1="44" x2="42" y2="44" stroke="#C4834A" stroke-width="0.6" opacity="0.85"/>
+              <circle cx="28" cy="28" r="25.5" stroke="#B8973C" stroke-width="0.9"/>
+              <text x="22" y="39" font-family="'Playfair Display', 'Didot', Georgia, serif" font-size="30" font-weight="700" fill="#FDFBF8" text-anchor="middle" aria-hidden="true">S</text>
+              <text x="35" y="39" font-family="'Playfair Display', 'Didot', Georgia, serif" font-size="30" font-weight="700" fill="#C4834A" text-anchor="middle" aria-hidden="true">D</text>
             </svg>
           </div>
           <div class="logo-text">
@@ -914,21 +413,21 @@
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="#services">Landscaping</a></li>
-          <li><a href="#services">Maintenance</a></li>
-          <li><a href="#services">Painting & Finishing</a></li>
-          <li><a href="#services">Solar Lighting</a></li>
-          <li><a href="#services">Project Delivery</a></li>
+          <li><a href="services/landscaping.html">Landscaping</a></li>
+          <li><a href="services/maintenance.html">Maintenance</a></li>
+          <li><a href="services/painting.html">Painting & Finishing</a></li>
+          <li><a href="services/solar-lighting.html">Solar Lighting</a></li>
+          <li><a href="services/project-delivery.html">Project Delivery</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
         <ul>
-          <li><a href="#about">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="#approach">Our Approach</a></li>
-          <li><a href="#sectors">Sectors</a></li>
           <li><a href="#why">Why Choose Us</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="brand.html">Brand kit</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -936,8 +435,8 @@
         <ul>
           <li>0777 299 904</li>
           <li>agabaza@scapesanddecor.com</li>
-          <li>108 McIlwraith Avenue</li>
-          <li>Eastlea, Harare</li>
+          <li>108 McChlery Avenue</li>
+          <li>Harare</li>
           <li>www.scapesanddecor.com</li>
         </ul>
       </div>
@@ -952,7 +451,7 @@
 <script>
   (function(){
     const links = document.querySelectorAll('.nav-links a');
-    const sections = ['top','services','about','approach','sectors','contact']
+    const sections = ['top','services','why','approach','sectors']
       .map(id=>document.getElementById(id)).filter(Boolean);
     function update(){
       const y = window.scrollY + 120;
@@ -966,5 +465,8 @@
     update();
   })();
 </script>
+<a class="whatsapp-fab" href="https://wa.me/263777299904?text=Hi%20Scapes%20%26%20D%C3%A9cor%2C%20I%27d%20like%20to%20enquire%20about..." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5zM12 22a10 10 0 0 1-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A10 10 0 1 1 22 12c0 5.5-4.5 10-10 10zm5.5-7.5c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.1-1.3-.5-2.4-1.5a9 9 0 0 1-1.7-2c-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5l.3-.5c.1-.2 0-.3 0-.5l-.9-2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1 2.9 1.2 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.3-.7.3-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
 </body>
 </html>

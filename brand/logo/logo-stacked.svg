@@ -1,0 +1,10 @@
+<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scapes &amp; Décor">
+  
+  <g transform="translate(102 12)">
+    <circle cx="28" cy="28" r="25.5" fill="none" stroke="#B8973C" stroke-width="0.9"/>
+    <text x="22" y="39" font-family="'Playfair Display','Didot',Georgia,serif" font-size="30" font-weight="700" fill="#2E5E3E" text-anchor="middle">S</text>
+    <text x="35" y="39" font-family="'Playfair Display','Didot',Georgia,serif" font-size="30" font-weight="700" fill="#C4834A" text-anchor="middle">D</text>
+  </g>
+  <text x="130" y="116" font-family="'Playfair Display','Didot',Georgia,serif" font-size="26" font-weight="700" fill="#22281E" text-anchor="middle">Scapes <tspan fill="#C4834A" font-style="italic" font-weight="400">&amp;</tspan> Décor</text>
+  <text x="130" y="138" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="2.8" fill="#6B7264" text-anchor="middle">PROPERTY SERVICES · EST. 2014</text>
+</svg>
