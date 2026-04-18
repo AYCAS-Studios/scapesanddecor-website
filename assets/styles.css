@@ -271,7 +271,7 @@ section{padding:120px 0;position:relative}
 .section-title em{color:var(--clay);font-weight:500}
 .section-intro{font-size:17px;color:var(--slate);max-width:640px;line-height:1.65}
 
-.section-header{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:64px}
+.section-header{display:flex;justify-content:space-between;align-items:start;gap:40px;margin-bottom:64px}
 
 /* ===== Services ===== */
 #services{background:var(--linen)}
