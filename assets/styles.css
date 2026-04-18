@@ -187,7 +187,7 @@ nav.main{
   position:absolute;inset:0;
   background:
     linear-gradient(135deg, rgba(31,64,41,.72), rgba(34,40,30,.45) 50%, rgba(31,64,41,.55)),
-    url("img/hero.jpg") center/cover no-repeat;
+    url("img/hero.webp") center/cover no-repeat;
 }
 .hero-bg::before{
   content:"";position:absolute;inset:0;
@@ -308,11 +308,11 @@ section{padding:120px 0;position:relative}
   color:transparent;
   background-size:cover;background-position:center;background-repeat:no-repeat;
 }
-.ph-landscape{background-image:url("img/service-landscaping.jpg")}
-.ph-maint{background-image:url("img/service-maintenance.jpg")}
-.ph-paint{background-image:url("img/service-painting.jpg")}
-.ph-solar{background-image:url("img/service-solar.jpg")}
-.ph-project{background-image:url("img/service-project.jpg")}
+.ph-landscape{background-image:url("img/service-landscaping.webp")}
+.ph-maint{background-image:url("img/service-maintenance.webp")}
+.ph-paint{background-image:url("img/service-painting.webp")}
+.ph-solar{background-image:url("img/service-solar.webp")}
+.ph-project{background-image:url("img/service-project.webp")}
 
 .service-img::after{
   content:"";position:absolute;inset:0;
@@ -690,23 +690,23 @@ footer{background:var(--charcoal);color:#D4D3CC;padding:80px 0 32px}
 .page-hero[class*="ph-bg-"] .page-hero-banner{display:none}
 .page-hero.ph-bg-landscaping::before{
   background:linear-gradient(135deg, rgba(31,64,41,.78), rgba(34,40,30,.55) 50%, rgba(31,64,41,.55)),
-    url("img/hero-landscaping.jpg") center/cover no-repeat;
+    url("img/hero-landscaping.webp") center/cover no-repeat;
 }
 .page-hero.ph-bg-maintenance::before{
   background:linear-gradient(135deg, rgba(31,64,41,.78), rgba(34,40,30,.55) 50%, rgba(31,64,41,.55)),
-    url("img/hero-maintenance.jpg") center/cover no-repeat;
+    url("img/hero-maintenance.webp") center/cover no-repeat;
 }
 .page-hero.ph-bg-painting::before{
   background:linear-gradient(135deg, rgba(31,64,41,.78), rgba(34,40,30,.55) 50%, rgba(31,64,41,.55)),
-    url("img/hero-painting.jpg") center/cover no-repeat;
+    url("img/hero-painting.webp") center/cover no-repeat;
 }
 .page-hero.ph-bg-solar::before{
   background:linear-gradient(135deg, rgba(31,64,41,.82), rgba(34,40,30,.6) 50%, rgba(31,64,41,.6)),
-    url("img/hero-solar.jpg") center/cover no-repeat;
+    url("img/hero-solar.webp") center/cover no-repeat;
 }
 .page-hero.ph-bg-project::before{
   background:linear-gradient(135deg, rgba(31,64,41,.78), rgba(34,40,30,.55) 50%, rgba(31,64,41,.55)),
-    url("img/hero-project.jpg") center/cover no-repeat;
+    url("img/hero-project.webp") center/cover no-repeat;
 }
 
 .page-breadcrumb{
