@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clearing Agent Application Pack — Scapes &amp; Décor</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   SCAPES & DÉCOR — CLEARING AGENT APPLICATION PACK
+   A4 print-ready. Browser-fillable form.
+   ============================================ */
+:root {
+  --forest: #2E5E3E;
+  --forest-deep: #1F4029;
+  --clay: #C4834A;
+  --gold: #B8973C;
+  --stone: #F7F4EF;
+  --linen: #FDFBF8;
+  --charcoal: #22281E;
+  --slate: #6B7264;
+  --slate-soft: #8A917F;
+  --red: #B34747;
+  --rule: rgba(34,40,30,0.18);
+  --rule-strong: rgba(34,40,30,0.45);
+
+  --serif: 'Playfair Display', 'Didot', Georgia, serif;
+  --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --margin-x: 16mm;
+  --margin-y: 15mm;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  font-family: var(--sans);
+  color: var(--charcoal);
+  background: #d6d1c6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============ PAGE ============ */
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  margin: 12mm auto;
+  background: var(--stone);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2mm 8mm rgba(0,0,0,0.15);
+  padding: var(--margin-y) var(--margin-x) 22mm;
+}
+.page + .page { page-break-before: always; break-before: page; }
+
+/* ============ HEADER ============ */
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 4mm;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 6mm;
+}
+.brand {
+  display: flex; align-items: baseline; gap: 1mm;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 16pt;
+  letter-spacing: 0.02em;
+  color: var(--charcoal);
+}
+.brand .dot {
+  width: 1.8mm; height: 1.8mm; border-radius: 50%;
+  background: var(--clay);
+  display: inline-block;
+  margin-left: 0.8mm;
+  transform: translateY(-0.3mm);
+}
+.brand-sub {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-top: 0.8mm;
+}
+
+.doc-meta {
+  text-align: right;
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--slate);
+  line-height: 1.5;
+}
+.doc-meta .tid {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  color: var(--forest);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.8mm 2mm;
+  border: 1px solid var(--forest);
+  border-radius: 1mm;
+  margin-bottom: 1.5mm;
+}
+
+/* ============ TITLE BLOCK ============ */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 0 0 3mm 0;
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+.eyebrow .bar { flex: 0 0 10mm; height: 1px; background: var(--forest); }
+
+h1.doc-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28pt;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+  margin: 0 0 3mm 0;
+}
+h1.doc-title em {
+  font-style: italic;
+  color: var(--clay);
+  font-weight: 400;
+}
+.doc-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 11pt;
+  line-height: 1.4;
+  color: var(--slate);
+  margin: 0 0 3mm 0;
+  max-width: 160mm;
+}
+.doc-instructions {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: 8.5pt;
+  line-height: 1.45;
+  color: var(--forest-deep);
+  background: rgba(46,94,62,0.06);
+  border-left: 2px solid var(--forest);
+  padding: 2mm 3mm;
+  margin: 0 0 6mm 0;
+  max-width: 160mm;
+}
+
+h2.section {
+  font-family: var(--sans);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 7mm 0 3mm 0;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--forest);
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+h2.section .num {
+  font-family: var(--mono);
+  color: var(--slate);
+  font-weight: 500;
+  font-size: 7.5pt;
+}
+
+h3.sub {
+  font-family: var(--serif);
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin: 4mm 0 2mm 0;
+}
+
+/* ============ BODY TEXT ============ */
+p, .body {
+  font-family: var(--sans);
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--charcoal);
+  margin: 0 0 2.5mm 0;
+}
+.small { font-size: 8pt; color: var(--slate); line-height: 1.45; }
+.caps {
+  font-size: 7.5pt; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* ============ FORM FIELDS ============ */
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6mm;
+  row-gap: 3mm;
+  margin: 2mm 0 4mm 0;
+}
+.fields.one { grid-template-columns: 1fr; }
+.fields.three { grid-template-columns: 1fr 1fr 1fr; }
+.fields.four { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.field { display: flex; flex-direction: column; }
+.field .lbl {
+  font-family: var(--sans);
+  font-size: 7pt; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 1mm;
+}
+.field .val,
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field textarea {
+  font-family: var(--sans);
+  font-size: 10pt;
+  color: var(--charcoal);
+  border: none;
+  border-bottom: 1px solid var(--rule-strong);
+  min-height: 9mm;
+  padding: 1mm 0 1mm 1mm;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  resize: none;
+  line-height: 1.35;
+}
+.field textarea {
+  font-family: var(--sans);
+  min-height: 20mm;
+  padding-top: 1.5mm;
+}
+.field textarea.lg { min-height: 22mm; }
+.field textarea.xl { min-height: 32mm; }
+.field input:focus,
+.field textarea:focus {
+  background: rgba(46,94,62,0.04);
+  border-bottom-color: var(--forest);
+}
+.field.span-2 { grid-column: span 2; }
+.field.span-3 { grid-column: span 3; }
+.field.span-4 { grid-column: span 4; }
+
+.hint {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--slate-soft);
+  font-style: italic;
+  margin-top: 0.5mm;
+}
+
+/* ============ TABLE-INPUTS ============ */
+table.t input[type="text"],
+table.t input[type="email"],
+table.t input[type="tel"] {
+  font-family: var(--sans);
+  font-size: 9pt;
+  color: var(--charcoal);
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  line-height: 1.35;
+}
+table.t input:focus {
+  background: rgba(46,94,62,0.05);
+}
+
+/* ============ CHECKBOXES ============ */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 3.5mm;
+  height: 3.5mm;
+  border: 1px solid var(--rule-strong);
+  border-radius: 0.5mm;
+  background: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+input[type="checkbox"]:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 1px rgba(46,94,62,0.25);
+}
+input[type="checkbox"]:checked {
+  background: var(--forest);
+  border-color: var(--forest);
+}
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 0.9mm;
+  top: 0.2mm;
+  width: 1.1mm;
+  height: 2.1mm;
+  border: solid #fff;
+  border-width: 0 0.5mm 0.5mm 0;
+  transform: rotate(45deg);
+}
+
+/* ============ TABLES ============ */
+table.t {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin: 2mm 0 4mm 0;
+}
+table.t thead th {
+  font-family: var(--sans);
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+  text-align: left;
+  padding: 2mm 2mm;
+  border-bottom: 1.5px solid var(--charcoal);
+  background: rgba(46,94,62,0.08);
+}
+table.t tbody td {
+  padding: 3mm 2mm;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  font-family: var(--sans);
+  color: var(--charcoal);
+  min-height: 9mm;
+}
+table.t tbody tr:nth-child(even) td { background: rgba(196,131,74,0.05); }
+table.t td.num, table.t th.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.t td.ctr, table.t th.ctr { text-align: center; }
+table.t tfoot td {
+  padding: 2.5mm 2mm;
+  border-top: 1.5px solid var(--charcoal);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tick + Y/N helper for scope tables */
+table.t.scope th.ctr, table.t.scope td.ctr { width: 16mm; }
+table.t.scope .yn { font-family: var(--mono); font-size: 8pt; letter-spacing: 0.1em; }
+
+/* ============ PLAIN LISTS ============ */
+ol.plain, ul.plain { margin: 2mm 0 4mm 5mm; padding: 0; font-size: 9.5pt; line-height: 1.55; }
+ol.plain li, ul.plain li { margin-bottom: 1.5mm; }
+
+/* ============ CALLOUT / NOTE ============ */
+.note {
+  background: rgba(46,94,62,0.06);
+  border-left: 3px solid var(--forest);
+  padding: 3mm 4mm;
+  margin: 3mm 0;
+  font-size: 8.5pt;
+  line-height: 1.5;
+  color: var(--charcoal);
+}
+.note .lbl {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--forest);
+  display: block;
+  margin-bottom: 1mm;
+}
+.note.clay {
+  background: rgba(196,131,74,0.08);
+  border-left-color: var(--clay);
+}
+.note.clay .lbl { color: var(--clay); }
+
+/* ============ DECLARATION ============ */
+.declaration {
+  font-family: var(--serif);
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--charcoal);
+  padding: 4mm 5mm;
+  border: 1px solid var(--rule);
+  background: rgba(247,244,239,0.6);
+  margin: 2mm 0 5mm 0;
+}
+
+/* ============ SIGN-OFF BLOCK ============ */
+.signoff {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm;
+  margin-top: 6mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--rule);
+}
+.signoff.three { grid-template-columns: 1fr 1fr 1fr; }
+.signoff.one { grid-template-columns: 1fr; }
+.sig { font-size: 8pt; }
+.sig .role {
+  font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 1mm;
+}
+.sig .name {
+  font-family: var(--sans);
+  font-size: 9pt;
+  border-bottom: 1px solid var(--rule-strong);
+  min-height: 16mm;
+  padding-top: 10mm;
+  margin-bottom: 2mm;
+}
+.sig .line {
+  display: flex; justify-content: space-between;
+  font-size: 7pt; color: var(--slate);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+.sig-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm 8mm;
+  margin-top: 4mm;
+}
+
+.stamp-box {
+  border: 1px dashed var(--rule-strong);
+  min-height: 32mm;
+  padding: 2mm;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  font-size: 7pt;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============ FOOTER ============ */
+.doc-footer {
+  position: absolute;
+  left: var(--margin-x); right: var(--margin-x);
+  bottom: 10mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 7pt;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--rule);
+  padding-top: 2mm;
+}
+.doc-footer .class {
+  color: var(--slate);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+.doc-footer .tid {
+  font-family: var(--mono);
+  color: var(--slate);
+  letter-spacing: 0.08em;
+}
+
+/* ============ UTIL ============ */
+.row { display: flex; gap: 4mm; align-items: flex-start; }
+.row.between { justify-content: space-between; }
+.spacer { flex: 1; }
+.mb-0 { margin-bottom: 0; }
+.mt-4 { margin-top: 4mm; }
+.mt-6 { margin-top: 6mm; }
+.hl { color: var(--forest); font-weight: 600; }
+
+/* ============ PRINT ============ */
+@media print {
+  html, body {
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    background: #fff;
+  }
+  .no-print { display: none !important; }
+  .field input,
+  .field textarea,
+  table.t input {
+    color: var(--charcoal) !important;
+    background: transparent !important;
+    border-bottom-color: var(--rule-strong) !important;
+  }
+  table.t input { border-bottom: none !important; }
+  .field input:focus,
+  .field textarea:focus,
+  table.t input:focus {
+    background: transparent !important;
+    border-bottom-color: var(--rule-strong) !important;
+    box-shadow: none !important;
+  }
+  input[type="checkbox"] {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  input[type="checkbox"]:checked {
+    background: var(--forest) !important;
+    border-color: var(--forest) !important;
+  }
+  .doc-instructions { display: none; }
+}
+
+/* ============ SCREEN TOOLBAR ============ */
+.toolbar {
+  position: fixed;
+  top: 12px; right: 12px;
+  z-index: 1000;
+  display: flex; gap: 6px;
+  font-family: var(--sans);
+  font-size: 8pt;
+}
+.toolbar button {
+  background: var(--forest);
+  color: var(--linen);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.toolbar button:hover { background: var(--forest-deep); }
+.toolbar button.ghost {
+  background: transparent;
+  color: var(--charcoal);
+  border: 1px solid var(--rule-strong);
+}
+.toolbar button.ghost:hover {
+  background: var(--charcoal);
+  color: var(--linen);
+  border-color: var(--charcoal);
+}
+@media print { .toolbar { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <button type="button" onclick="window.print()">Print / Save PDF</button>
+  <button type="button" class="ghost" onclick="if(confirm('Clear all fields?')){document.getElementById('sd-ca-form').reset();}">Clear Form</button>
+</div>
+
+<form id="sd-ca-form" onsubmit="return false;" autocomplete="off">
+
+<!-- ================= PAGE 1 ================= -->
+<section class="page">
+
+  <header class="doc-header">
+    <div>
+      <div class="brand">Scapes &amp; Décor<span class="dot"></span></div>
+      <div class="brand-sub">Landscaping · Décor · Contracting · Harare</div>
+    </div>
+    <div class="doc-meta">
+      <div class="tid">SD-CA-APPLICATION · v1.0</div>
+      <div>Clearing Agent Application Pack</div>
+    </div>
+  </header>
+
+  <div class="eyebrow"><span class="bar"></span> Clearing Agent Application &amp; Appointment Pack</div>
+  <h1 class="doc-title">Clearing Agent <em>Application.</em></h1>
+  <p class="doc-lede">Application pack for customs clearing, forwarding and port agents seeking appointment to Scapes &amp; Décor's clearing-agent panel. Complete and return to begin vetting. A formal appointment letter is issued separately to successful applicants. Scapes &amp; Décor is a Harare-based landscaping, décor and contracting firm; current import activity includes solar street-lighting equipment shipped from China via regional ports of entry.</p>
+  <p class="doc-instructions no-print-note">Complete the fields directly in your browser, then use the <strong>Print / Save PDF</strong> button to produce a signed copy. Values you enter will appear in the printed PDF.</p>
+
+  <!-- ===== 1. APPLICANT IDENTITY ===== -->
+  <h2 class="section"><span>1 · Applicant Firm Identity</span><span class="num">§ Identification</span></h2>
+
+  <div class="fields">
+    <div class="field span-2"><span class="lbl">Registered Legal Name</span><input type="text" name="legal_name"></div>
+    <div class="field"><span class="lbl">Trading Name (if different)</span><input type="text" name="trading_name"></div>
+    <div class="field"><span class="lbl">Country of Incorporation</span><input type="text" name="country_incorporation"></div>
+    <div class="field"><span class="lbl">Company / Registration No.</span><input type="text" name="registration_no"></div>
+    <div class="field"><span class="lbl">Tax Identification No. (TIN / VAT)</span><input type="text" name="tax_id"></div>
+    <div class="field"><span class="lbl">Date of Incorporation</span><input type="text" name="date_incorporation"></div>
+    <div class="field"><span class="lbl">Years Trading as Clearing Agent</span><input type="text" name="years_trading"></div>
+    <div class="field span-2"><span class="lbl">Registered Address</span><textarea name="registered_address" rows="2"></textarea></div>
+    <div class="field span-2"><span class="lbl">Head Office / Principal Place of Business</span><textarea name="head_office" rows="2"></textarea></div>
+  </div>
+
+  <!-- ===== 2. CONTACT & REPRESENTATION ===== -->
+  <h2 class="section"><span>2 · Contact &amp; Authorised Representation</span><span class="num">§ Contacts</span></h2>
+
+  <div class="fields">
+    <div class="field"><span class="lbl">Primary Contact — Name</span><input type="text" name="primary_contact_name"></div>
+    <div class="field"><span class="lbl">Role / Title</span><input type="text" name="primary_contact_role"></div>
+    <div class="field"><span class="lbl">Email</span><input type="email" name="primary_contact_email"></div>
+    <div class="field"><span class="lbl">Telephone (with country code)</span><input type="tel" name="primary_contact_tel"></div>
+    <div class="field"><span class="lbl">After-Hours / Operations Contact</span><input type="text" name="ops_contact"></div>
+    <div class="field"><span class="lbl">24-Hour Mobile</span><input type="tel" name="ops_mobile"></div>
+    <div class="field"><span class="lbl">Authorised Signatory — Name</span><input type="text" name="signatory_name"></div>
+    <div class="field"><span class="lbl">ID / Passport No.</span><input type="text" name="signatory_id"></div>
+    <div class="field span-2"><span class="lbl">Evidence of Authority (Board Resolution / POA reference)</span><input type="text" name="authority_evidence"></div>
+  </div>
+
+  <!-- ===== 3. BRANCH NETWORK ===== -->
+  <h2 class="section"><span>3 · Branch Network &amp; Border / Port Coverage</span><span class="num">§ Footprint</span></h2>
+  <p class="small">Tick each border post or port the firm directly covers through its own staff (not via sub-agent). Add offices / partner relationships under "Remarks".</p>
+
+  <table class="t scope">
+    <thead>
+      <tr>
+        <th class="ctr" style="width:10mm">Tick</th>
+        <th>Border Post / Port</th>
+        <th>Own Office / Sub-Agent</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="ctr"><input type="checkbox" name="border_beitbridge"></td><td>Beitbridge (Zimbabwe / South Africa)</td><td><input type="text" name="border_beitbridge_office"></td><td><input type="text" name="border_beitbridge_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="border_plumtree"></td><td>Plumtree (Zimbabwe / Botswana)</td><td><input type="text" name="border_plumtree_office"></td><td><input type="text" name="border_plumtree_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="border_nyamapanda"></td><td>Nyamapanda (Zimbabwe / Mozambique)</td><td><input type="text" name="border_nyamapanda_office"></td><td><input type="text" name="border_nyamapanda_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="border_forbes"></td><td>Forbes / Machipanda (Zimbabwe / Mozambique)</td><td><input type="text" name="border_forbes_office"></td><td><input type="text" name="border_forbes_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="border_chirundu"></td><td>Chirundu (Zimbabwe / Zambia)</td><td><input type="text" name="border_chirundu_office"></td><td><input type="text" name="border_chirundu_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="border_kazungula"></td><td>Kazungula (Zimbabwe / Zambia / Botswana)</td><td><input type="text" name="border_kazungula_office"></td><td><input type="text" name="border_kazungula_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="port_beira"></td><td>Port of Beira (Mozambique)</td><td><input type="text" name="port_beira_office"></td><td><input type="text" name="port_beira_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="port_walvis"></td><td>Port of Walvis Bay (Namibia)</td><td><input type="text" name="port_walvis_office"></td><td><input type="text" name="port_walvis_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="port_durban"></td><td>Port of Durban (South Africa)</td><td><input type="text" name="port_durban_office"></td><td><input type="text" name="port_durban_remarks"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="port_other"></td><td>Other (specify) <input type="text" name="port_other_name" style="display:inline-block;width:40mm;margin-left:2mm"></td><td><input type="text" name="port_other_office"></td><td><input type="text" name="port_other_remarks"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span>Scapes &amp; Décor · scapesanddecor.com</span>
+    <span class="class">For counterparty completion</span>
+    <span class="tid">SD-CA-APPLICATION · Page 1 / 4</span>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 ================= -->
+<section class="page">
+
+  <header class="doc-header">
+    <div>
+      <div class="brand">Scapes &amp; Décor<span class="dot"></span></div>
+      <div class="brand-sub">Landscaping · Décor · Contracting · Harare</div>
+    </div>
+    <div class="doc-meta">
+      <div class="tid">SD-CA-APPLICATION · v1.0</div>
+      <div>Clearing Agent Application Pack — continued</div>
+    </div>
+  </header>
+
+  <!-- ===== 4. LICENSING & ACCREDITATION ===== -->
+  <h2 class="section"><span>4 · Licensing &amp; Accreditation</span><span class="num">§ Regulatory standing</span></h2>
+
+  <div class="fields">
+    <div class="field"><span class="lbl">Customs Agent Licence No.</span><input type="text" name="customs_licence_no"></div>
+    <div class="field"><span class="lbl">Issuing Authority</span><input type="text" name="customs_licence_authority"></div>
+    <div class="field"><span class="lbl">Date of Issue</span><input type="text" name="customs_licence_issue"></div>
+    <div class="field"><span class="lbl">Expiry / Next Renewal</span><input type="text" name="customs_licence_expiry"></div>
+    <div class="field"><span class="lbl">Freight Forwarder Registration No.</span><input type="text" name="forwarder_reg_no"></div>
+    <div class="field"><span class="lbl">Issuing Authority</span><input type="text" name="forwarder_reg_authority"></div>
+    <div class="field"><span class="lbl">Bonded Warehouse Access (Y / N)</span><input type="text" name="bonded_warehouse"></div>
+    <div class="field"><span class="lbl">Warehouse Licence No. (if applicable)</span><input type="text" name="warehouse_licence_no"></div>
+    <div class="field"><span class="lbl">Customs Bond Capacity (USD)</span><input type="text" name="bond_capacity_usd"></div>
+    <div class="field"><span class="lbl">Transit Bond Facility Provider</span><input type="text" name="transit_bond_provider"></div>
+    <div class="field"><span class="lbl">Electronic Customs Systems in Use</span><input type="text" name="customs_systems" placeholder="ASYCUDA World, SARS EDI, SIMBA 2005, etc."></div>
+    <div class="field"><span class="lbl">Industry Association Membership</span><input type="text" name="association_membership" placeholder="SAAFF, FIATA, ZIFFA, etc."></div>
+    <div class="field span-2"><span class="lbl">Any Current or Historic Suspension / Enforcement Action by a Customs Authority (details)</span><textarea name="suspension_details" class="lg" rows="3"></textarea></div>
+  </div>
+
+  <!-- ===== 5. INSURANCE ===== -->
+  <h2 class="section"><span>5 · Insurance Cover</span><span class="num">§ Policies in force</span></h2>
+  <p class="small">Attach certificates of currency for each policy. Cover must be with a reputable insurer and in force at the date of application.</p>
+
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Insurer</th>
+        <th>Policy No.</th>
+        <th class="num">Limit (USD, per occurrence / aggregate)</th>
+        <th>Expiry</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Professional Indemnity</td><td><input type="text" name="ins_pi_insurer"></td><td><input type="text" name="ins_pi_policy"></td><td class="num"><input type="text" name="ins_pi_limit"></td><td><input type="text" name="ins_pi_expiry"></td></tr>
+      <tr><td>Errors &amp; Omissions</td><td><input type="text" name="ins_eo_insurer"></td><td><input type="text" name="ins_eo_policy"></td><td class="num"><input type="text" name="ins_eo_limit"></td><td><input type="text" name="ins_eo_expiry"></td></tr>
+      <tr><td>Fidelity Guarantee</td><td><input type="text" name="ins_fg_insurer"></td><td><input type="text" name="ins_fg_policy"></td><td class="num"><input type="text" name="ins_fg_limit"></td><td><input type="text" name="ins_fg_expiry"></td></tr>
+      <tr><td>Cargo Liability / Freight Liability</td><td><input type="text" name="ins_cl_insurer"></td><td><input type="text" name="ins_cl_policy"></td><td class="num"><input type="text" name="ins_cl_limit"></td><td><input type="text" name="ins_cl_expiry"></td></tr>
+      <tr><td>Public Liability</td><td><input type="text" name="ins_pl_insurer"></td><td><input type="text" name="ins_pl_policy"></td><td class="num"><input type="text" name="ins_pl_limit"></td><td><input type="text" name="ins_pl_expiry"></td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== 6. STAFFING ===== -->
+  <h2 class="section"><span>6 · Licensed Clearing Officers &amp; Key Staff</span><span class="num">§ Capability</span></h2>
+  <p class="small">List each licensed clearing officer assigned to Scapes &amp; Décor consignments, with branch, qualification and licence reference.</p>
+
+  <table class="t">
+    <thead>
+      <tr>
+        <th style="width:6%">#</th>
+        <th>Full Name</th>
+        <th>Branch / Border</th>
+        <th>Role</th>
+        <th>Qualification</th>
+        <th>Clearing Officer Licence No.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><input type="text" name="staff_1_name"></td><td><input type="text" name="staff_1_branch"></td><td><input type="text" name="staff_1_role"></td><td><input type="text" name="staff_1_qual"></td><td><input type="text" name="staff_1_licence"></td></tr>
+      <tr><td>2</td><td><input type="text" name="staff_2_name"></td><td><input type="text" name="staff_2_branch"></td><td><input type="text" name="staff_2_role"></td><td><input type="text" name="staff_2_qual"></td><td><input type="text" name="staff_2_licence"></td></tr>
+      <tr><td>3</td><td><input type="text" name="staff_3_name"></td><td><input type="text" name="staff_3_branch"></td><td><input type="text" name="staff_3_role"></td><td><input type="text" name="staff_3_qual"></td><td><input type="text" name="staff_3_licence"></td></tr>
+      <tr><td>4</td><td><input type="text" name="staff_4_name"></td><td><input type="text" name="staff_4_branch"></td><td><input type="text" name="staff_4_role"></td><td><input type="text" name="staff_4_qual"></td><td><input type="text" name="staff_4_licence"></td></tr>
+      <tr><td>5</td><td><input type="text" name="staff_5_name"></td><td><input type="text" name="staff_5_branch"></td><td><input type="text" name="staff_5_role"></td><td><input type="text" name="staff_5_qual"></td><td><input type="text" name="staff_5_licence"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span>Scapes &amp; Décor · scapesanddecor.com</span>
+    <span class="class">For counterparty completion</span>
+    <span class="tid">SD-CA-APPLICATION · Page 2 / 4</span>
+  </div>
+</section>
+
+<!-- ================= PAGE 3 ================= -->
+<section class="page">
+
+  <header class="doc-header">
+    <div>
+      <div class="brand">Scapes &amp; Décor<span class="dot"></span></div>
+      <div class="brand-sub">Landscaping · Décor · Contracting · Harare</div>
+    </div>
+    <div class="doc-meta">
+      <div class="tid">SD-CA-APPLICATION · v1.0</div>
+      <div>Clearing Agent Application Pack — continued</div>
+    </div>
+  </header>
+
+  <!-- ===== 7. SCOPE OF SERVICES OFFERED ===== -->
+  <h2 class="section"><span>7 · Scope of Services Offered</span><span class="num">§ Applicant capability</span></h2>
+  <p class="small">Tick each service the firm is licensed, staffed and insured to provide directly. Mark sub-contracted services as "S". Any appointment issued by Scapes &amp; Décor will define the specific scope of authority granted.</p>
+
+  <table class="t scope">
+    <thead>
+      <tr>
+        <th class="ctr" style="width:10mm">Tick</th>
+        <th>Service</th>
+        <th class="ctr">Direct / Sub (D/S)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="ctr"><input type="checkbox" name="svc_entries"></td><td>Lodgement of customs entries (import, export, transit) via the relevant revenue authority.</td><td class="ctr"><input type="text" name="svc_entries_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_edi"></td><td>Electronic submission through ASYCUDA World, SARS Customs EDI, SIMBA 2005 or equivalent.</td><td class="ctr"><input type="text" name="svc_edi_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_docs"></td><td>Documentary presentation — bills of lading, CMR, SAD 500, commercial invoices, packing lists.</td><td class="ctr"><input type="text" name="svc_docs_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_origin"></td><td>Preferential origin certification — SADC, COMESA, EUR.1, AfCFTA.</td><td class="ctr"><input type="text" name="svc_origin_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_permits"></td><td>Regulatory permit clearance — ZIMRA entries, phytosanitary, SPS, ZERA / standards-body approvals where applicable, and destination-side equivalents.</td><td class="ctr"><input type="text" name="svc_permits_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_bonds"></td><td>Posting of customs bonds and guarantees — transit bond, removal-in-transit, warehouse bond.</td><td class="ctr"><input type="text" name="svc_bonds_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_port"></td><td>Port, terminal and stevedore coordination; weighbridge supervision.</td><td class="ctr"><input type="text" name="svc_port_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_road"></td><td>Road transport coordination — haulier nomination, convoy management, escort where required.</td><td class="ctr"><input type="text" name="svc_road_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_rail"></td><td>Rail and multimodal coordination.</td><td class="ctr"><input type="text" name="svc_rail_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_container"></td><td>Container handling, seal management, gate-in / gate-out processing.</td><td class="ctr"><input type="text" name="svc_container_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_surveyors"></td><td>Liaison with independent surveyors (SGS, Bureau Veritas, Intertek, Cotecna).</td><td class="ctr"><input type="text" name="svc_surveyors_ds" style="text-align:center" maxlength="3"></td></tr>
+      <tr><td class="ctr"><input type="checkbox" name="svc_cash"></td><td>Cross-border cash management for statutory payments, under documented controls.</td><td class="ctr"><input type="text" name="svc_cash_ds" style="text-align:center" maxlength="3"></td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== 8. FEE SCHEDULE ===== -->
+  <h2 class="section"><span>8 · Indicative Fee Schedule</span><span class="num">§ Rate card</span></h2>
+  <p class="small">Populate the firm's standard rate card. Final fee basis for appointed agents is fixed in the appointment letter. All rates stated exclusive of disbursements and taxes.</p>
+  <p class="small" style="margin-top:-1mm"><em>Rates quoted are indicative only; the appointment letter will fix the fee basis for the specific consignment.</em></p>
+
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Service Line</th>
+        <th>Basis</th>
+        <th>Currency</th>
+        <th class="num">Rate</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Customs entry — import</td><td>per entry</td><td><input type="text" name="fee_imp_ccy"></td><td class="num"><input type="text" name="fee_imp_rate"></td><td><input type="text" name="fee_imp_notes"></td></tr>
+      <tr><td>Customs entry — export</td><td>per entry</td><td><input type="text" name="fee_exp_ccy"></td><td class="num"><input type="text" name="fee_exp_rate"></td><td><input type="text" name="fee_exp_notes"></td></tr>
+      <tr><td>Customs entry — transit (T1 / RIT)</td><td>per entry</td><td><input type="text" name="fee_tr_ccy"></td><td class="num"><input type="text" name="fee_tr_rate"></td><td><input type="text" name="fee_tr_notes"></td></tr>
+      <tr><td>Container clearance</td><td>per TEU</td><td><input type="text" name="fee_teu_ccy"></td><td class="num"><input type="text" name="fee_teu_rate"></td><td><input type="text" name="fee_teu_notes"></td></tr>
+      <tr><td>Permit handling</td><td>per permit</td><td><input type="text" name="fee_permit_ccy"></td><td class="num"><input type="text" name="fee_permit_rate"></td><td><input type="text" name="fee_permit_notes"></td></tr>
+      <tr><td>Bond / guarantee posting</td><td>% of bonded value</td><td><input type="text" name="fee_bond_ccy"></td><td class="num"><input type="text" name="fee_bond_rate"></td><td><input type="text" name="fee_bond_notes"></td></tr>
+      <tr><td>After-hours / weekend surcharge</td><td>flat / %</td><td><input type="text" name="fee_oot_ccy"></td><td class="num"><input type="text" name="fee_oot_rate"></td><td><input type="text" name="fee_oot_notes"></td></tr>
+      <tr><td>Disbursement handling fee</td><td>% of disbursements</td><td><input type="text" name="fee_disb_ccy"></td><td class="num"><input type="text" name="fee_disb_rate"></td><td><input type="text" name="fee_disb_notes"></td></tr>
+      <tr><td>Other (specify) <input type="text" name="fee_other_desc" style="width:35mm;margin-left:2mm"></td><td><input type="text" name="fee_other_basis"></td><td><input type="text" name="fee_other_ccy"></td><td class="num"><input type="text" name="fee_other_rate"></td><td><input type="text" name="fee_other_notes"></td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== 9. BANK DETAILS ===== -->
+  <h2 class="section"><span>9 · Bank Details for Fee Settlement</span><span class="num">§ Payment routing</span></h2>
+
+  <div class="fields">
+    <div class="field"><span class="lbl">Account Holder Name</span><input type="text" name="bank_holder"></div>
+    <div class="field"><span class="lbl">Bank Name</span><input type="text" name="bank_name"></div>
+    <div class="field"><span class="lbl">Branch / Code</span><input type="text" name="bank_branch"></div>
+    <div class="field"><span class="lbl">Account Number</span><input type="text" name="bank_account_no"></div>
+    <div class="field"><span class="lbl">SWIFT / BIC</span><input type="text" name="bank_swift"></div>
+    <div class="field"><span class="lbl">Account Currency</span><input type="text" name="bank_ccy" placeholder="USD / ZAR / ZWG / Other"></div>
+    <div class="field span-2"><span class="lbl">Correspondent Bank (for USD settlement, if applicable)</span><input type="text" name="bank_correspondent"></div>
+  </div>
+
+  <div class="doc-footer">
+    <span>Scapes &amp; Décor · scapesanddecor.com</span>
+    <span class="class">For counterparty completion</span>
+    <span class="tid">SD-CA-APPLICATION · Page 3 / 4</span>
+  </div>
+</section>
+
+<!-- ================= PAGE 4 ================= -->
+<section class="page">
+
+  <header class="doc-header">
+    <div>
+      <div class="brand">Scapes &amp; Décor<span class="dot"></span></div>
+      <div class="brand-sub">Landscaping · Décor · Contracting · Harare</div>
+    </div>
+    <div class="doc-meta">
+      <div class="tid">SD-CA-APPLICATION · v1.0</div>
+      <div>Clearing Agent Application Pack — continued</div>
+    </div>
+  </header>
+
+  <!-- ===== 10. REFERENCES ===== -->
+  <h2 class="section"><span>10 · Trade References</span><span class="num">§ Referees</span></h2>
+  <p class="small">Provide three active trade references — trading firms, freight forwarders, importers or exporters for whom the firm currently clears. Scapes &amp; Décor will contact each referee directly.</p>
+
+  <table class="t">
+    <thead>
+      <tr>
+        <th style="width:6%">#</th>
+        <th>Referee Firm</th>
+        <th>Contact Name &amp; Role</th>
+        <th>Email / Telephone</th>
+        <th>Relationship &amp; Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><input type="text" name="ref_1_firm"></td><td><input type="text" name="ref_1_contact"></td><td><input type="text" name="ref_1_email"></td><td><input type="text" name="ref_1_relationship"></td></tr>
+      <tr><td>2</td><td><input type="text" name="ref_2_firm"></td><td><input type="text" name="ref_2_contact"></td><td><input type="text" name="ref_2_email"></td><td><input type="text" name="ref_2_relationship"></td></tr>
+      <tr><td>3</td><td><input type="text" name="ref_3_firm"></td><td><input type="text" name="ref_3_contact"></td><td><input type="text" name="ref_3_email"></td><td><input type="text" name="ref_3_relationship"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <span class="lbl">Liability &amp; Indemnification</span>
+    Liability, indemnification and standard-of-care terms governing any engagement are set out in the formal appointment letter issued by Scapes &amp; Décor to successful applicants. Submission of this application does not constitute an appointment and imposes no mandate on either party.
+  </div>
+
+  <!-- ===== 11. APPLICANT DECLARATION ===== -->
+  <h2 class="section"><span>11 · Applicant Declaration</span><span class="num">§ Attestation</span></h2>
+
+  <div class="declaration">
+    The undersigned, being an authorised officer of the applicant firm, declares that the information provided is complete, accurate and current. We confirm that all licences, registrations and insurance policies listed are in force at the date of signing, that the firm is in good standing with the relevant customs authority, and that the firm, its directors and its beneficial owners do not appear on any international sanctions list (OFAC, UN, EU, UK, RBZ). We undertake to notify Scapes &amp; Décor in writing within 10 business days of any material change, any suspension of licence, or any action by a customs authority against the firm.
+  </div>
+
+  <div class="sig-grid">
+    <div class="field"><span class="lbl">Authorised Signatory — Full Name</span><input type="text" name="decl_signatory_name"></div>
+    <div class="field"><span class="lbl">Role / Title</span><input type="text" name="decl_signatory_role"></div>
+    <div class="sig">
+      <div class="role">Signature</div>
+      <div class="name"></div>
+      <div class="line"><span>Signed for and on behalf of the applicant firm</span></div>
+    </div>
+    <div class="field"><span class="lbl">Date (DD / MM / YYYY)</span><input type="text" name="decl_date"></div>
+    <div class="field span-2">
+      <span class="lbl">Company Stamp</span>
+      <div class="stamp-box">Affix company stamp / seal within this area</div>
+    </div>
+  </div>
+
+  <!-- ===== 12. SUBMISSION & NEXT STEPS ===== -->
+  <h2 class="section"><span>12 · Submission &amp; Next Steps</span><span class="num">§ Return instructions</span></h2>
+
+  <p>Return the completed application with certified copies of licences, insurance schedules and bank confirmation to <strong>agabaza@scapesanddecor.com</strong>. Scapes &amp; Décor will review, take references, and issue a formal appointment letter setting out scope, authorities, fee basis, liability terms and SLA to successful applicants. Vetting typically completes within seven working days.</p>
+
+  <div class="doc-footer">
+    <span>Scapes &amp; Décor · scapesanddecor.com</span>
+    <span class="class">For counterparty completion</span>
+    <span class="tid">SD-CA-APPLICATION · Page 4 / 4</span>
+  </div>
+</section>
+
+</form>
+
+</body>
+</html>
