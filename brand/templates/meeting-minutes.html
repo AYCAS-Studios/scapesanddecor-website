@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Meeting Minutes — Scapes & Décor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#2E5E3E;--forest-deep:#1F4029;--clay:#C4834A;--gold:#B8973C;
+    --charcoal:#22281E;--slate:#6B7264;--stone:#F7F4EF;--linen:#FDFBF8;
+    --ink:var(--charcoal);
+    --serif:'Playfair Display','Didot',Georgia,serif;
+    --sans:'Inter','Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  @page{size:A4 portrait;margin:0}
+  html,body{margin:0;padding:0;background:#d9d4c9;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:var(--sans);color:var(--ink)}
+
+  .mm-page{
+    width:210mm;height:297mm;
+    margin:20px auto;
+    background:var(--linen);
+    position:relative;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    overflow:hidden;
+    page-break-after:always;
+  }
+  .mm-page:last-child{page-break-after:auto}
+
+  /* HEADER */
+  .mm-header{
+    padding:16mm 20mm 8mm 20mm;
+    display:grid;grid-template-columns:auto 1fr auto;gap:6mm;align-items:center;
+    border-bottom:.5px solid rgba(34,40,30,.2);
+  }
+  .mm-seal{
+    width:14mm;height:14mm;border:.6px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:700;font-size:18pt;line-height:1;letter-spacing:-.04em;
+  }
+  .mm-seal .s{color:var(--forest-deep)}
+  .mm-seal .d{color:var(--clay);margin-left:-.05em}
+  .mm-wordmark{font-family:var(--serif);font-weight:700;font-size:16pt;color:var(--forest-deep);line-height:1}
+  .mm-wordmark .amp{color:var(--clay);font-style:italic;font-weight:400}
+  .mm-tag{font-size:6.5pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-top:2mm}
+
+  .mm-doctag{text-align:right}
+  .mm-doctag .kind{font-size:7pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--clay)}
+  .mm-doctag .ref{font-family:'JetBrains Mono',monospace;font-size:8pt;color:var(--slate);margin-top:1.5mm}
+
+  /* TITLE */
+  .mm-title-block{padding:6mm 20mm 4mm 20mm}
+  .mm-eyebrow{font-size:7.5pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin-bottom:4mm;display:flex;align-items:center;gap:3mm}
+  .mm-eyebrow .bar{flex:0 0 10mm;height:1px;background:var(--clay)}
+  .mm-title-block h1{font-family:var(--serif);font-weight:700;font-size:28pt;line-height:1.05;color:var(--forest-deep);margin:0 0 4mm 0;letter-spacing:-.01em}
+  .mm-subject{font-family:var(--serif);font-style:italic;font-size:13pt;color:var(--slate)}
+  .mm-subject .v{color:var(--forest-deep);font-style:normal;font-weight:600}
+
+  /* META */
+  .mm-meta{
+    margin:0 20mm;padding:5mm 0 6mm 0;
+    border-top:.5px solid rgba(34,40,30,.2);border-bottom:.5px solid rgba(34,40,30,.2);
+    display:grid;grid-template-columns:repeat(4,1fr);gap:6mm;
+  }
+  .mm-meta .k{font-size:6.5pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:1.5mm;display:block}
+  .mm-meta .v{font-family:var(--serif);font-size:11pt;font-weight:600;color:var(--forest-deep);line-height:1.2}
+  .mm-meta .v.small{font-size:10pt;font-family:var(--sans);font-weight:500}
+
+  /* SECTIONS */
+  .mm-section{margin:0 20mm;padding:5mm 0 3mm 0}
+  .mm-section h2,.mm-actions h2{
+    font-family:var(--sans);font-size:7.5pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);
+    margin:0 0 4mm 0;display:flex;align-items:center;gap:3mm;
+  }
+  .mm-section h2::before,.mm-actions h2::before{
+    content:attr(data-num);font-family:var(--serif);font-style:italic;font-size:14pt;
+    color:var(--forest-deep);font-weight:400;letter-spacing:0;text-transform:none;
+  }
+  .mm-section h2::after,.mm-actions h2::after{content:'';flex:1;height:.5px;background:rgba(34,40,30,.15)}
+
+  /* ATTENDEES */
+  .mm-attendees{display:grid;grid-template-columns:1fr 1fr;gap:3mm 8mm}
+  .mm-attendees .row{display:grid;grid-template-columns:3mm 1fr auto;gap:3mm;align-items:baseline;font-size:9.5pt;padding:1mm 0;border-bottom:.3px dotted rgba(34,40,30,.25)}
+  .mm-attendees .mark{width:3mm;height:3mm;border-radius:50%;border:.5px solid var(--forest-deep);background:var(--forest-deep);margin-top:1.8mm}
+  .mm-attendees .row.apologies .mark{background:transparent}
+  .mm-attendees .name{color:var(--forest-deep);font-weight:600}
+  .mm-attendees .role{color:var(--slate);font-size:8.5pt;font-style:italic}
+  .mm-attendees .stat{font-size:7pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--forest)}
+  .mm-attendees .row.apologies .stat{color:var(--slate)}
+  .mm-legend{margin-top:3mm;font-size:7.5pt;color:var(--slate);display:flex;gap:6mm}
+  .mm-legend .dot{display:inline-block;width:2.5mm;height:2.5mm;border-radius:50%;border:.5px solid var(--forest-deep);vertical-align:middle;margin-right:1.5mm}
+  .mm-legend .dot.f{background:var(--forest-deep)}
+
+  /* ITEMS */
+  .mm-items{display:flex;flex-direction:column;gap:2mm}
+  .mm-item{display:grid;grid-template-columns:14mm 1fr;gap:5mm;padding:3mm 0;border-bottom:.5px solid rgba(34,40,30,.12)}
+  .mm-item:last-child{border-bottom:none}
+  .mm-item .num{font-family:var(--serif);font-size:14pt;font-weight:700;color:var(--clay);font-feature-settings:'tnum';line-height:1;padding-top:1mm}
+  .mm-item .title{font-family:var(--serif);font-weight:700;font-size:12pt;color:var(--forest-deep);line-height:1.2;margin-bottom:2mm}
+  .mm-item .discussion{font-size:9.5pt;line-height:1.5;color:var(--ink);margin-bottom:2mm}
+  .mm-item .discussion ul{margin:1mm 0 0 4mm;padding:0}
+  .mm-item .discussion li{margin-bottom:1mm}
+  .mm-item .decision{font-size:9pt;color:var(--forest-deep);font-weight:500;background:var(--stone);padding:2.5mm 4mm;border-left:2px solid var(--clay);margin-top:2mm}
+  .mm-item .decision::before{content:'Decision';font-size:6.5pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:1mm}
+
+  /* ACTIONS */
+  .mm-actions{margin:0 20mm;padding:8mm 0 4mm 0}
+  .mm-actions table{width:100%;border-collapse:collapse;font-size:9pt}
+  .mm-actions thead th{text-align:left;font-size:6.5pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);padding:2mm 3mm 2mm 0;border-bottom:.8px solid var(--forest-deep)}
+  .mm-actions tbody td{padding:3mm 3mm 3mm 0;border-bottom:.3px dotted rgba(34,40,30,.25);vertical-align:top;font-size:9pt;line-height:1.4}
+  .mm-actions .id{font-family:'JetBrains Mono',monospace;font-size:8pt;color:var(--slate)}
+  .mm-actions .owner{color:var(--forest-deep);font-weight:600}
+  .mm-actions .due{font-family:var(--serif);font-weight:600;color:var(--forest-deep);font-size:10pt}
+  .mm-actions .status{display:inline-block;padding:.5mm 2.5mm;border-radius:999px;font-size:7pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+  .mm-actions .status.open{background:rgba(196,131,74,.15);color:var(--clay)}
+  .mm-actions .status.progress{background:rgba(184,151,60,.18);color:#8A6F20}
+  .mm-actions .status.done{background:rgba(46,94,62,.15);color:var(--forest)}
+
+  /* SIGN-OFF */
+  .mm-signoff{
+    position:absolute;bottom:28mm;left:20mm;right:20mm;
+    display:grid;grid-template-columns:1fr 1fr;gap:10mm;
+    padding-top:8mm;border-top:.5px solid rgba(34,40,30,.2);
+  }
+  .mm-signoff .k{font-size:6.5pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);margin-bottom:2mm;display:block}
+  .mm-signoff .sig-line{height:.5px;background:rgba(34,40,30,.4);margin-bottom:1.5mm;margin-top:10mm}
+  .mm-signoff .name{font-family:var(--serif);font-weight:700;font-size:11pt;color:var(--forest-deep)}
+  .mm-signoff .role{font-size:7.5pt;color:var(--slate);letter-spacing:.1em;text-transform:uppercase;margin-top:.8mm}
+
+  /* FOOTER */
+  .mm-footer{
+    position:absolute;left:20mm;right:20mm;bottom:10mm;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:7pt;color:var(--slate);letter-spacing:.1em;text-transform:uppercase;
+    padding-top:3mm;border-top:.5px solid rgba(184,151,60,.4);
+  }
+  .mm-footer .tagline{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:.02em;color:var(--clay);font-size:8.5pt}
+
+  [contenteditable]{outline:none}
+  [contenteditable]:focus{background:rgba(184,151,60,.1);outline:1px dashed var(--clay);outline-offset:1mm}
+
+  .notice{position:fixed;top:12px;right:12px;background:var(--forest);color:var(--linen);padding:10px 14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-radius:2px;z-index:100;font-family:var(--sans)}
+  .notice a{color:var(--gold);text-decoration:none;margin-left:8px;cursor:pointer}
+
+  @media print{
+    html,body{background:#fff}
+    .mm-page{margin:0;box-shadow:none}
+    .notice{display:none}
+    [contenteditable]:focus{background:transparent !important;outline:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="notice">Meeting Minutes preview · <a onclick="window.print();return false">Print / Save PDF</a></div>
+
+<!-- PAGE 1 -->
+<div class="mm-page">
+  <div class="mm-header">
+    <div style="display:flex;align-items:center;gap:4mm">
+      <div class="mm-seal"><span class="s">S</span><span class="d">D</span></div>
+      <div>
+        <div class="mm-wordmark">Scapes <span class="amp">&amp;</span> Décor</div>
+        <div class="mm-tag">Property Services · Est. 2009</div>
+      </div>
+    </div>
+    <div></div>
+    <div class="mm-doctag">
+      <div class="kind">Minutes of Meeting</div>
+      <div class="ref" contenteditable="true">MM-YYYY-MM-DD</div>
+    </div>
+  </div>
+
+  <div class="mm-title-block">
+    <div class="mm-eyebrow"><span class="bar"></span><span contenteditable="true">Meeting Type</span></div>
+    <h1 contenteditable="true">[Meeting Title]</h1>
+    <div class="mm-subject">Subject &nbsp;·&nbsp; <span class="v" contenteditable="true">[Subject of the meeting]</span></div>
+  </div>
+
+  <div class="mm-meta">
+    <div><span class="k">Date</span><div class="v" contenteditable="true">[Day, DD Month YYYY]</div></div>
+    <div><span class="k">Time</span><div class="v" contenteditable="true">[HH:MM — HH:MM]</div></div>
+    <div><span class="k">Location</span><div class="v small" contenteditable="true">[Venue]</div></div>
+    <div><span class="k">Chair · Minutes</span><div class="v small" contenteditable="true">[Chair] · [Minutes by]</div></div>
+  </div>
+
+  <div class="mm-section">
+    <h2 data-num="01">Present &amp; Apologies</h2>
+    <div class="mm-attendees">
+      <div class="row"><div class="mark"></div><div><span class="name" contenteditable="true">[Name]</span> &nbsp;<span class="role" contenteditable="true">[Role]</span></div><div class="stat">Present</div></div>
+      <div class="row"><div class="mark"></div><div><span class="name" contenteditable="true">[Name]</span> &nbsp;<span class="role" contenteditable="true">[Role]</span></div><div class="stat">Present</div></div>
+      <div class="row"><div class="mark"></div><div><span class="name" contenteditable="true">[Name]</span> &nbsp;<span class="role" contenteditable="true">[Role]</span></div><div class="stat">Present</div></div>
+      <div class="row"><div class="mark"></div><div><span class="name" contenteditable="true">[Name]</span> &nbsp;<span class="role" contenteditable="true">[Role]</span></div><div class="stat">Present</div></div>
+      <div class="row apologies"><div class="mark"></div><div><span class="name" contenteditable="true">[Name]</span> &nbsp;<span class="role" contenteditable="true">[Role]</span></div><div class="stat">Apology</div></div>
+      <div class="row apologies"><div class="mark"></div><div><span class="name" contenteditable="true">[Name]</span> &nbsp;<span class="role" contenteditable="true">[Role]</span></div><div class="stat">Apology</div></div>
+    </div>
+    <div class="mm-legend">
+      <span><span class="dot f"></span>Present</span>
+      <span><span class="dot"></span>Apology</span>
+    </div>
+  </div>
+
+  <div class="mm-section">
+    <h2 data-num="02">Matters Discussed</h2>
+    <div class="mm-items">
+      <div class="mm-item">
+        <div class="num">01</div>
+        <div>
+          <div class="title" contenteditable="true">[Agenda Item]</div>
+          <div class="discussion" contenteditable="true">[Discussion notes — key points, concerns raised, information shared.]</div>
+          <div class="decision" contenteditable="true">[Decision reached, if any. Leave blank if the item was informational only.]</div>
+        </div>
+      </div>
+      <div class="mm-item">
+        <div class="num">02</div>
+        <div>
+          <div class="title" contenteditable="true">[Agenda Item]</div>
+          <div class="discussion" contenteditable="true">[Discussion notes.]</div>
+        </div>
+      </div>
+      <div class="mm-item">
+        <div class="num">03</div>
+        <div>
+          <div class="title" contenteditable="true">[Agenda Item]</div>
+          <div class="discussion" contenteditable="true">[Discussion notes.]</div>
+          <div class="decision" contenteditable="true">[Decision.]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mm-footer">
+    <span>Scapes &amp; Décor (Pvt) Ltd</span>
+    <span class="tagline">Improved, Maintained, Well-Presented Environments</span>
+    <span>Page 01 / 02</span>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="mm-page">
+  <div class="mm-header">
+    <div style="display:flex;align-items:center;gap:4mm">
+      <div class="mm-seal"><span class="s">S</span><span class="d">D</span></div>
+      <div>
+        <div class="mm-wordmark">Scapes <span class="amp">&amp;</span> Décor</div>
+        <div class="mm-tag">Property Services · Est. 2009</div>
+      </div>
+    </div>
+    <div></div>
+    <div class="mm-doctag">
+      <div class="kind">Minutes of Meeting · Continued</div>
+      <div class="ref" contenteditable="true">MM-YYYY-MM-DD</div>
+    </div>
+  </div>
+
+  <div class="mm-title-block" style="padding-bottom:2mm">
+    <div class="mm-eyebrow"><span class="bar"></span><span>Continued &amp; Close-out</span></div>
+    <h1 style="font-size:22pt">Actions &amp; Close-out</h1>
+    <div class="mm-subject">Continuation of &nbsp;·&nbsp; <span class="v" contenteditable="true">[Meeting Title]</span></div>
+  </div>
+
+  <div class="mm-section">
+    <h2 data-num="02">Matters Discussed · Continued</h2>
+    <div class="mm-items">
+      <div class="mm-item">
+        <div class="num">04</div>
+        <div>
+          <div class="title">Any Other Business</div>
+          <div class="discussion" contenteditable="true">[AOB items.]</div>
+        </div>
+      </div>
+      <div class="mm-item">
+        <div class="num">05</div>
+        <div>
+          <div class="title">Next Meeting</div>
+          <div class="discussion" contenteditable="true">[Date · time · location.]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mm-actions">
+    <h2 data-num="03">Action Register</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22mm">Ref</th>
+          <th>Action</th>
+          <th style="width:28mm">Owner</th>
+          <th style="width:22mm">Due</th>
+          <th style="width:22mm">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="id" contenteditable="true">A-[REF]-01</td>
+          <td contenteditable="true">[Action description]</td>
+          <td class="owner" contenteditable="true">[Owner]</td>
+          <td class="due" contenteditable="true">[Due date]</td>
+          <td><span class="status open">Open</span></td>
+        </tr>
+        <tr>
+          <td class="id" contenteditable="true">A-[REF]-02</td>
+          <td contenteditable="true">[Action description]</td>
+          <td class="owner" contenteditable="true">[Owner]</td>
+          <td class="due" contenteditable="true">[Due date]</td>
+          <td><span class="status progress">In Progress</span></td>
+        </tr>
+        <tr>
+          <td class="id" contenteditable="true">A-[REF]-03</td>
+          <td contenteditable="true">[Action description]</td>
+          <td class="owner" contenteditable="true">[Owner]</td>
+          <td class="due" contenteditable="true">[Due date]</td>
+          <td><span class="status done">Done</span></td>
+        </tr>
+        <tr>
+          <td class="id" contenteditable="true">A-[REF]-04</td>
+          <td contenteditable="true">[Action description]</td>
+          <td class="owner" contenteditable="true">[Owner]</td>
+          <td class="due" contenteditable="true">[Due date]</td>
+          <td><span class="status open">Open</span></td>
+        </tr>
+        <tr>
+          <td class="id" contenteditable="true">A-[REF]-05</td>
+          <td contenteditable="true">[Action description]</td>
+          <td class="owner" contenteditable="true">[Owner]</td>
+          <td class="due" contenteditable="true">[Due date]</td>
+          <td><span class="status open">Open</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mm-signoff">
+    <div>
+      <span class="k">Chair · Signature</span>
+      <div class="sig-line"></div>
+      <div class="name" contenteditable="true">[Name]</div>
+      <div class="role" contenteditable="true">[Role]</div>
+    </div>
+    <div>
+      <span class="k">Minutes Taken By</span>
+      <div class="sig-line"></div>
+      <div class="name" contenteditable="true">[Name]</div>
+      <div class="role" contenteditable="true">[Role]</div>
+    </div>
+  </div>
+
+  <div class="mm-footer">
+    <span>Scapes &amp; Décor (Pvt) Ltd</span>
+    <span class="tagline">Improved, Maintained, Well-Presented Environments</span>
+    <span>Page 02 / 02</span>
+  </div>
+</div>
+
+</body>
+</html>

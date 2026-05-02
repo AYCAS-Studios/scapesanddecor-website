@@ -6,20 +6,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root{--forest:#2E5E3E;--clay:#C4834A;--gold:#B8973C;--stone:#F7F4EF;--linen:#FDFBF8;--charcoal:#22281E;--slate:#6B7264;--line:rgba(34,40,30,.12)}
-  @page{size:A4;margin:0}
-  html,body{margin:0;padding:0;background:#eee}
-  body{font-family:'Inter',Arial,sans-serif;color:var(--charcoal);font-size:11pt;line-height:1.55}
-  .sheet{
-    width:210mm;min-height:297mm;
-    margin:20px auto;padding:0;
-    background:var(--linen);
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-    position:relative;
-    page-break-after:always;
-  }
-  .sheet-inner{padding:28mm 24mm 36mm}
 
-  .lh-header{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:16pt;border-bottom:1px solid var(--line);margin-bottom:18pt}
+  /* Print: @page margins + running footer in @bottom-left / @bottom-right.
+     Paints on every physical page automatically — no position:absolute tricks. */
+  @page{
+    size:A4;
+    margin:22mm 20mm 26mm 20mm;
+    @bottom-left{
+      content:"Scapes & Décor (Pvt) Ltd · Registered in Zimbabwe";
+      font-family:'Inter',Arial,sans-serif;
+      font-size:8.5pt;
+      color:#6B7264;
+      padding-top:10pt;
+      border-top:1px solid rgba(34,40,30,.12);
+      vertical-align:top;
+    }
+    @bottom-right{
+      content:"Property services for improved, maintained and well-presented environments.";
+      font-family:'Inter',Arial,sans-serif;
+      font-size:8.5pt;
+      color:#B8973C;
+      font-weight:600;
+      padding-top:10pt;
+      border-top:1px solid rgba(34,40,30,.12);
+      vertical-align:top;
+    }
+  }
+
+  html,body{margin:0;padding:0;background:var(--linen);font-family:'Inter',Arial,sans-serif;color:var(--charcoal);font-size:11pt;line-height:1.55}
+
+  /* Header is normal flow content on page 1 only — letters don't repeat the letterhead on continuation pages */
+  .lh-header{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:16pt;border-bottom:1px solid var(--line);margin-bottom:18pt;break-after:avoid;page-break-after:avoid}
   .lh-logo{display:flex;align-items:center;gap:12pt}
   .lh-logo svg{width:48pt;height:48pt;display:block}
   .lh-name{font-family:'Playfair Display',serif;font-weight:700;font-size:18pt;line-height:1;color:var(--charcoal)}
@@ -29,18 +46,40 @@
   .lh-contact strong{color:var(--charcoal);font-weight:600}
 
   .lh-date{color:var(--slate);font-size:10pt;margin:0 0 10pt}
-  .lh-recipient{margin:0 0 24pt;font-size:11pt;line-height:1.5}
-  .lh-body p{margin:0 0 12pt}
+  .lh-recipient{margin:0 0 24pt;font-size:11pt;line-height:1.5;break-inside:avoid;page-break-inside:avoid}
+  .lh-body p{margin:0 0 12pt;orphans:3;widows:3}
 
-  .lh-foot{position:absolute;left:24mm;right:24mm;bottom:14mm;padding-top:10pt;border-top:1px solid var(--line);font-size:8.5pt;color:var(--slate);display:flex;justify-content:space-between}
-  .lh-foot em{color:var(--clay);font-style:normal;font-weight:600}
+  /* On-screen preview mimics an A4 page — the @page margins only apply in print, so simulate them here */
+  @media screen{
+    body{background:#eee}
+    .sheet{
+      width:210mm;
+      background:var(--linen);
+      margin:20px auto;
+      box-shadow:0 10px 30px rgba(0,0,0,.15);
+      box-sizing:border-box;
+    }
+    .sheet-inner{padding:22mm 20mm 14mm}
+    .lh-foot-screen{
+      margin:0 20mm 22mm;
+      padding-top:10pt;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      font-size:8.5pt;
+      color:var(--slate);
+    }
+    .lh-foot-screen em{color:var(--clay);font-style:normal;font-weight:600}
+  }
 
   @media print{
-    body{background:#fff}
-    .sheet{margin:0;box-shadow:none}
+    .sheet{margin:0;padding:0;background:transparent;box-shadow:none;width:auto}
+    .sheet-inner{padding:0}
     .notice{display:none}
+    .lh-foot-screen{display:none}
   }
-  .notice{position:fixed;top:12px;right:12px;background:var(--forest);color:var(--linen);padding:10px 14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-radius:2px}
+
+  .notice{position:fixed;top:12px;right:12px;background:var(--forest);color:var(--linen);padding:10px 14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-radius:2px;z-index:100}
   .notice a{color:var(--gold);text-decoration:none;margin-left:8px}
 </style>
 </head>
@@ -64,7 +103,7 @@
       <div class="lh-contact">
         <strong>Scapes &amp; Décor (Pvt) Ltd</strong><br/>
         108 McChlery Avenue, Harare<br/>
-        0777 299 904 · agabaza@scapesanddecor.com<br/>
+        0716 959 403 · agabaza@scapesanddecor.com<br/>
         www.scapesanddecor.com
       </div>
     </div>
@@ -85,7 +124,7 @@
     </div>
   </div>
 
-  <div class="lh-foot">
+  <div class="lh-foot-screen">
     <div>Scapes <em>&amp;</em> Décor (Pvt) Ltd · Registered in Zimbabwe</div>
     <div>Property services for improved, maintained and well-presented environments.</div>
   </div>
