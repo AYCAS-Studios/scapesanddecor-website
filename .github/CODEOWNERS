@@ -1,0 +1,9 @@
+# Global owners for all files
+* @agabaza-cmyk
+
+# Docs
+/docs/ @agabaza-cmyk
+/*.md @agabaza-cmyk
+
+# CI/CD
+/.github/ @agabaza-cmyk
